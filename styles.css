@@ -620,7 +620,7 @@ header:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('Images/bg_ourproducts.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('bg_ourproducts.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
@@ -725,7 +725,7 @@ header:hover {
 
 /* Heavy Equipment Rental Section */
 #heavy-equipment-rental {
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/bgheavy.png') no-repeat center center/cover; /* Background image with light gradient */
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgheavy.png') no-repeat center center/cover; /* Background image with light gradient */
     position: relative;
     width: 100%;
     margin-bottom: 30px; /* Space between sections */
@@ -864,7 +864,7 @@ header:hover {
 
 /* Product Categories Section */
 #product-categories {
-    background: url('Images/bgcategories.jpg'), linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))no-repeat center center/cover; /* Background image with gradient overlay */
+    background: url('bgcategories.jpg'), linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))no-repeat center center/cover; /* Background image with gradient overlay */
     position: relative;
     width: 100%;
     margin-bottom: 30px; /* Space between sections */
@@ -1127,7 +1127,7 @@ header:hover {
 
 
 #bahrain-services {
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/bgbahrain.png') no-repeat center center/cover; /* Background image with light gradient */
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgbahrain.png') no-repeat center center/cover; /* Background image with light gradient */
     position: relative;
     width: 100%;
     margin-bottom: 30px; /* Space between sections */
