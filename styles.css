@@ -57,7 +57,6 @@ header:hover {
 
 /* Logo Styles */
 .logo-container {
-    background-color: #333; /* Dark grey background */
     padding: 5px; /* Padding around the logo */
     border-radius: 5px; /* Rounded corners */
     display: flex;
