@@ -10,23 +10,55 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
 	<script src="script.js"></script>
+	<script src="navbar.js"></script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="logo-container">
 		<a href="index.html">
-            <img src="nlogo.png" alt="AICON Logo" class="logo">
+            <img src="nlogo.png" alt="AICON Logo" class="logo"></a>
         </div>
-        <nav>
-            <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
+                <nav>
+             <ul class="navbar">
+                   <li class="nav-dropdown">
+                <a href="index.html" class="dropdown-btn">Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#welcome-section">Welcome</a></li>
+                    <li><a href="index.html#reasons-to-choose">Perks</a></li>
+                    <li><a href="company-updates">Updates</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-dropdown">
+                <a href="about.html" class="dropdown-btn">About</a>
+                <ul class="dropdown-menu">
+                    <li><a href="about.html#about-us">About Us</a></li>
+                    <li><a href="about.html#board-of-directors">Board Of Directors</a></li>
+                    <li><a href="about.html#partnerships">Our Partners</a></li>
+                </ul>
+            </li>
+
+            <li><a href="services.html" class="active">Services</a></li>
+
+            <li class="nav-dropdown">
+                <a href="projects.html" class="dropdown-btn">Projects</a>
+                <ul class="dropdown-menu">
+                    <li><a href="projects.html#completed-projects">Completed Projects Philippines</a></li>
+                    <li><a href="projects.html#bahrain-projects">Completed Projects Bahrain</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-dropdown">
+                <a href="contact.html" class="dropdown-btn">Contact</a>
+                <ul class="dropdown-menu">
+                    <li><a href="contact.html#form">Newsletter Form</a></li>
+                    <li><a href="contact.html#contact">Contact Details</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
     </header>
 
     <!-- Main Content -->
@@ -549,42 +581,31 @@
 					<div class="category-list" style="display: none;">
                     <ul class="hidden">
                         <li class="category-item" onclick="toggleDescription(this)">3//4
-							<div class="category-description">
-							</div>
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">3//8
-							<div class="category-description">
-							</div>
+
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">G1
-							<div class="category-description">
-							</div>
+
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">S1
-							<div class="category-description">
-							</div>
+
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">BASEE COURSE
-							<div class="category-description">
-							</div>
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">SUB BASE
-							<div class="category-description">
-							</div>
+
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">CRUSHED ROCK
-							<div class="category-description">
-							</div>
+
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">BOULDERS
-							<div class="category-description">
-							</div>
+
 						</li>
                         <li class="category-item" onclick="toggleDescription(this)">APPLE SIZE
-							<div class="category-description">
-							</div>
+
 						</li>
-                        <!-- Add more items -->
+                        <!-- Add more items -->	
                     </ul>
 					</div>
                 </div>
@@ -762,27 +783,33 @@
 
     <!-- Footer -->
 <footer>
-    <div class="footer-logo">
-        <img src="nlogo.png" alt="Company Logo">
+    <div class="footer-content">
+        <div class="footer-logo">
+                        <a href="index.html">
+            <img src="nlogo.png" alt="Company Logo"></a>
+        </div>
+        <div class="footer-links">
+            <a href="contact.html">Contact Us</a> |
+            <a href="services.html">Services</a> |
+            <a href="contact.html">Get Newsletter</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
+                <img src="fbyellow.png" alt="Facebook" class="social-icon"></a>
+            <a href="https://www.tiktok.com/@aiconsuph" target="_blank">
+                <img src="tiktokyellow.png" alt="TikTok" class="social-icon"></a>
+            <a href="https://www.linkedin.com/in/aicon-suph-17803b280/" target="_blank">
+                <img src="linkedinyellow.png" alt="LinkedIn" class="social-icon"></a>
+            <a href="https://www.instagram.com/aiconsuph/" target="_blank">
+                <img src="igyellow.png" alt="Instagram" class="social-icon"></a>
+            <a href="https://twitter.com/your-profile" target="_blank">
+                <img src="xyellow.png" alt="Twitter" class="social-icon">
+            </a>
+        </div>
     </div>
-    <div class="footer-links">
-        <a href="contact.html">Contact Us</a> | 
-        <a href="services.html">Services</a> | 
-        <a href="contact.html">Get Newsletter</a>
+    <div class="footer-rights">
+        <p>&copy; 2024 AICON Construction Supplies and General Trading. All rights reserved.</p>
     </div>
-    <div class="footer-social">
-        <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
-                    <img src="fbyellow.png" alt="Facebook" class="social-icon"></a>
-        <a href="https://www.tiktok.com/@aiconsuph" target="_blank">
-                    <img src="tiktokyellow.png" alt="TikTok" class="social-icon"></a>
-        <a href="https://www.linkedin.com/in/aicon-suph-17803b280/" target="_blank">
-                    <img src="linkedinyellow.png" alt="LinkedIn" class="social-icon"></a>
-        <a href="https://www.instagram.com/aiconsuph/" target="_blank">
-                    <img src="igyellow.png" alt="Instagram" class="social-icon"></a>
-        <a href="https://twitter.com/your-profile" target="_blank">
-        <img src="xyellow.png" alt="Twitter" class="social-icon">
-    </a>
-    <p>&copy; 2024 AICON Construction Supplies and General Trading. All rights reserved.</p>
 </footer>
 </body>
 </html>

@@ -8,26 +8,61 @@
     	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400&display=swap">
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+	<script src="navbar.js"></script>
 </head>
 <body id="projects-page">
     <!-- Header with Logo and Navigation Bar -->
     <header>
         <div class="logo-container">
 		<a href="index.html">
-            <img src="nlogo.png" alt="AICON Logo" class="logo">
+            <img src="nlogo.png" alt="AICON Logo" class="logo"></a>
         </div>
-        <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+<nav>
+             <ul class="navbar">
+                   <li class="nav-dropdown">
+                <a href="index.html" class="dropdown-btn">Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#welcome-section">Welcome</a></li>
+                    <li><a href="index.html#reasons-to-choose">Perks</a></li>
+                    <li><a href="company-updates">Updates</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-dropdown">
+                <a href="about.html" class="dropdown-btn">About</a>
+                <ul class="dropdown-menu">
+                    <li><a href="about.html#about-us">About Us</a></li>
+                    <li><a href="about.html#board-of-directors">Board Of Directors</a></li>
+                    <li><a href="about.html#partnerships">Our Partners</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-dropdown">
+                <a href="services.html" class="dropdown-btn">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html#our-products">Products</a></li>
+                    <li><a href="services.html#heavy-equipment-rental">Heavy Equipment Rental</a></li>
+                    <li><a href="services.html#product-categories">Product Categories</a></li>
+                    <li><a href="services.html#bahrain-services">Bahrain Services</a></li>
+                </ul>
+            </li>
+
+                <li><a href="projects.html">Projects</a></li>
+                
+            <li class="nav-dropdown">
+                <a href="contact.html" class="dropdown-btn">Contact</a>
+                <ul class="dropdown-menu">
+                    <li><a href="contact.html#form">Newsletter Form</a></li>
+                    <li><a href="contact.html#contact">Contact Details</a></li>
+                </ul>
+            </li>
         </ul>
+    </nav>
     </header>
 
 <!-- Completed Projects Section -->
 <section id="completed-projects">
-    <h1>Completed Projects</h1>
+    <h1>Completed Projects (Philippines)</h1>
 		<div class="projects-container">
 			<div class="projects-slider">
 				<!-- Slide 1 -->
@@ -185,7 +220,7 @@
 
 <!-- Completed Bahrain Section -->
 <section id="bahrain-projects">
-    <h1>List of Project Accomplishments (BAHRAIN)</h1>
+    <h1>Completed Projects (BAHRAIN)</h1>
 		<div class="bahrain-projects-container">
 			<div class="bahrain-projects-slider">
 				<!-- Slide 1 -->
@@ -309,27 +344,33 @@
 		
     <!-- Footer -->
 <footer>
-    <div class="footer-logo">
-        <img src="nlogo.png" alt="Company Logo">
+    <div class="footer-content">
+        <div class="footer-logo">
+                        <a href="index.html">
+            <img src="nlogo.png" alt="Company Logo"></a>
+        </div>
+        <div class="footer-links">
+            <a href="contact.html">Contact Us</a> |
+            <a href="services.html">Services</a> |
+            <a href="contact.html">Get Newsletter</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
+                <img src="fbyellow.png" alt="Facebook" class="social-icon"></a>
+            <a href="https://www.tiktok.com/@aiconsuph" target="_blank">
+                <img src="tiktokyellow.png" alt="TikTok" class="social-icon"></a>
+            <a href="https://www.linkedin.com/in/aicon-suph-17803b280/" target="_blank">
+                <img src="linkedinyellow.png" alt="LinkedIn" class="social-icon"></a>
+            <a href="https://www.instagram.com/aiconsuph/" target="_blank">
+                <img src="igyellow.png" alt="Instagram" class="social-icon"></a>
+            <a href="https://twitter.com/your-profile" target="_blank">
+                <img src="xyellow.png" alt="Twitter" class="social-icon">
+            </a>
+        </div>
     </div>
-    <div class="footer-links">
-        <a href="contact.html">Contact Us</a> | 
-        <a href="services.html">Services</a> | 
-        <a href="contact.html">Get Newsletter</a>
+    <div class="footer-rights">
+        <p>&copy; 2024 AICON Construction Supplies and General Trading. All rights reserved.</p>
     </div>
-    <div class="footer-social">
-        <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
-                    <img src="fbyellow.png" alt="Facebook" class="social-icon"></a>
-        <a href="https://www.tiktok.com/@aiconsuph" target="_blank">
-                    <img src="tiktokyellow.png" alt="TikTok" class="social-icon"></a>
-        <a href="https://www.linkedin.com/in/aicon-suph-17803b280/" target="_blank">
-                    <img src="linkedinyellow.png" alt="LinkedIn" class="social-icon"></a>
-        <a href="https://www.instagram.com/aiconsuph/" target="_blank">
-                    <img src="igyellow.png" alt="Instagram" class="social-icon"></a>
-        <a href="https://twitter.com/your-profile" target="_blank">
-        <img src="xyellow.png" alt="Twitter" class="social-icon">
-    </a>
-    <p>&copy; 2024 AICON Construction Supplies and General Trading. All rights reserved.</p>
 </footer>
 </body>
 </html>

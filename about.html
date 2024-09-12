@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="navbar.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -17,20 +18,53 @@
     <header>
         <div class="logo-container">
 		<a href="index.html">
-            <img src="nlogo.png" alt="AICON Logo" class="logo">
+            <img src="nlogo.png" alt="AICON Logo" class="logo"> </a>
         </div>
-        <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+        <nav>
+             <ul class="navbar">
+                   <li class="nav-dropdown">
+                <a href="index.html" class="dropdown-btn">Home</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#welcome-section">Welcome</a></li>
+                    <li><a href="index.html#reasons-to-choose">Perks</a></li>
+                    <li><a href="company-updates">Updates</a></li>
+                </ul>
+            </li>
+
+               <li><a href="about.html" class="active">About Us</a></li>
+
+            <li class="nav-dropdown">
+                <a href="services.html" class="dropdown-btn">Services</a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html#our-products">Products</a></li>
+                    <li><a href="services.html#heavy-equipment-rental">Heavy Equipment Rental</a></li>
+                    <li><a href="services.html#product-categories">Product Categories</a></li>
+                    <li><a href="services.html#bahrain-services">Bahrain Services</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-dropdown">
+                <a href="projects.html" class="dropdown-btn">Projects</a>
+                <ul class="dropdown-menu">
+                    <li><a href="projects.html#completed-projects">Completed Projects Philippines</a></li>
+                    <li><a href="projects.html#bahrain-projects">Completed Projects Bahrain</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-dropdown">
+                <a href="contact.html" class="dropdown-btn">Contact</a>
+                <ul class="dropdown-menu">
+                    <li><a href="contact.html#form">Newsletter Form</a></li>
+                    <li><a href="contact.html#contact">Contact Details</a></li>
+                </ul>
+            </li>
         </ul>
+    </nav>
     </header>
 
     <!-- About Us Section -->
     <section class="about-us">
-        <h1 class="about-heading">About Us</h1>
+        <h1 class="about-heading" id="about-us">About Us</h1>
     <p class="about-paragraph">AICON Construction Supplies is a diversified conglomerate with four core businesses: all types of building materials, from hardware products to cement, gravel, and sands (aggregates), heavy equipment, construction machinery; general trade; procurement of request-specific products; and logistics. AICON is involved in the distribution and procurement of all kinds of construction materials. We ensure quality at a competitive price. With the help of our logistics, we also deliver the materials to the project sites with care so they will be used as new without damaging them. We understand the challenges and needs of transporting building materials from leading manufacturers to construction sites.</p>
 
     <!-- Mission, Vision & Core Values -->
@@ -51,14 +85,14 @@
             <h3>Core Values</h3>
             <ul>
                 <li>Be the light, stay focused, and uphold integrity.</li>
-                <li>Teamwork Makes Dreams Work: Never Give Up!</li>
+                <li>Teamwork Makes Dreams Work Never Give Up!</li>
             </ul>
         </div>
     </div>
     </section>
 
     <!-- Board of Directors Section -->
-    <section class="board-of-directors">
+    <section class="board-of-directors" id="board-of-directors">
         <h2 class="board-heading">Board of Directors</h2>
         <div class="feature-cards">
             <div class="board-feature-card">
@@ -83,38 +117,54 @@
     </section>
 
     <!-- Partnership Section -->
-    <section class="partnerships">
-        <h2>Our Partnerships</h2>
+<!-- Partnership Section -->
+<section class="partnerships" id="partnerships">
+    <div class="partnerships-header">
+        <h2>Our Partners</h2>
+    </div>
+    <div class="partnerships-cards">
         <div class="partnership-card">
-            <img src="jcmslogo.png" alt="Partner Logo" class="partner-logo">
+            <img src="njcmslogo.png" alt="Partner Logo" class="partner-logo">
             <h3>JCMS ELECTRICAL SUPPLY</h3>
             <p>Details about the partnership with this company, including key achievements and goals.</p>
         </div>
-    </section>
+        <div class="partnership-card">
+            <img src="tslogo.png" alt="Partner Logo" class="partner-logo">
+            <h3>TEEWEE STEELS CORPORATION</h3>
+            <p>Details about the partnership with this company, including key achievements and goals.</p>
+        </div>
+    </div>
+</section>
+
 
 <!-- Footer -->
 <footer>
-    <div class="footer-logo">
-        <img src="nlogo.png" alt="Company Logo">
+    <div class="footer-content">
+        <div class="footer-logo">
+                        <a href="index.html">
+            <img src="nlogo.png" alt="Company Logo"></a>
+        </div>
+        <div class="footer-links">
+            <a href="contact.html">Contact Us</a> |
+            <a href="services.html">Services</a> |
+            <a href="contact.html">Get Newsletter</a>
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
+                <img src="fbyellow.png" alt="Facebook" class="social-icon"></a>
+            <a href="https://www.tiktok.com/@aiconsuph" target="_blank">
+                <img src="tiktokyellow.png" alt="TikTok" class="social-icon"></a>
+            <a href="https://www.linkedin.com/in/aicon-suph-17803b280/" target="_blank">
+                <img src="linkedinyellow.png" alt="LinkedIn" class="social-icon"></a>
+            <a href="https://www.instagram.com/aiconsuph/" target="_blank">
+                <img src="igyellow.png" alt="Instagram" class="social-icon"></a>
+            <a href="https://twitter.com/your-profile" target="_blank">
+                <img src="xyellow.png" alt="Twitter" class="social-icon">
+            </a>
+        </div>
     </div>
-    <div class="footer-links">
-        <a href="contact.html">Contact Us</a> | 
-        <a href="services.html">Services</a> | 
-        <a href="contact.html">Get Newsletter</a>
+    <div class="footer-rights">
+        <p>&copy; 2024 AICON Construction Supplies and General Trading. All rights reserved.</p>
     </div>
-    <div class="footer-social">
-        <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
-                    <img src="fbyellow.png" alt="Facebook" class="social-icon"></a>
-        <a href="https://www.tiktok.com/@aiconsuph" target="_blank">
-                    <img src="tiktokyellow.png" alt="TikTok" class="social-icon"></a>
-        <a href="https://www.linkedin.com/in/aicon-suph-17803b280/" target="_blank">
-                    <img src="linkedinyellow.png" alt="LinkedIn" class="social-icon"></a>
-        <a href="https://www.instagram.com/aiconsuph/" target="_blank">
-                    <img src="igyellow.png" alt="Instagram" class="social-icon"></a>
-        <a href="https://twitter.com/your-profile" target="_blank">
-        <img src="xyellow.png" alt="Twitter" class="social-icon">
-    </a>
-    <p>&copy; 2024 AICON Construction Supplies and General Trading. All rights reserved.</p>
-</footer>
-</body>
+</footer></body>
 </html>

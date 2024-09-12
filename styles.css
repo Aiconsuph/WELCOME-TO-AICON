@@ -8,20 +8,23 @@ body {
     font-size: 16px;
     line-height: 1.6;
 }
+html {
+    scroll-behavior: smooth;
+}
 
-/* Navigation Bar Styles */
+/* General Navigation Bar Styles */
 header {
-    background-color: #F9DB3D; /* Yellow background */
+    background-color: #F9DB3D;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 header:hover {
-    background-color: #F0C300; /* Slightly darker yellow on hover */
+    background-color: #F0C300;
 }
 
 .navbar {
@@ -29,30 +32,79 @@ header:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 15px; /* Increased space between nav items */
+    gap: 15px;
 }
 
 .navbar li {
     margin: 0;
+    position: relative;
 }
 
 .navbar li a {
-    color: #000; /* Black text */
+    color: #000;
     text-decoration: none;
-    padding: 10px 20px; /* Increased padding for better touch targets */
-    border-radius: 4px; /* Rounded corners for the nav items */
-    font-family: 'Roboto', sans-serif; /* Stylish font */
-    font-weight: 500; /* Semi-bold text */
-    font-size: 16px; /* Increased font size */
-    letter-spacing: 0.5px; /* Slightly increased letter spacing */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow for depth */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 .navbar li a:hover, .navbar li a.active {
-    background-color: #333; /* Black background */
-    color: #F9DB3D; /* Yellow text */
-    transform: scale(1.05); /* Slightly enlarge nav items on hover */
+    background-color: #333;
+    color: #F9DB3D;
+    transform: scale(1.05);
+}
+
+/* Dropdown Menu Styling */
+.nav-dropdown .dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #F9DB3D;
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-dropdown .dropdown-menu li {
+    margin: 0;
+}
+
+.nav-dropdown .dropdown-menu li a {
+    color: #333;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.nav-dropdown .dropdown-menu li a:hover {
+    background-color: #333;
+    color: #F9DB3D;
+}
+
+/* Show dropdown on hover for desktop */
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Ensure it works well on smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-dropdown .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
 }
 
 /* Logo Styles */
@@ -255,7 +307,7 @@ header:hover {
     text-transform: uppercase; /* Uppercase for boldness */
     letter-spacing: 2px; /* More spacing for a clean look */
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
-    animation: slideIn 1s ease-in-out;
+    animation: fadeInUp 1s ease-in-out;
     margin-left: auto;
     margin-right: auto;
 }
@@ -287,11 +339,13 @@ header:hover {
 }
 
 /* Mission, Vision & Core Values */
+/* Mission, Vision & Core Values */
 .mission-vision {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: space-between; /* Distribute space evenly between items */
+    align-items: stretch; /* Ensure all items have the same height */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    gap: 0px; /* Space between items */
 }
 
 /* Individual Mission, Vision, Core Values Cards */
@@ -301,13 +355,20 @@ header:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    width: 30%;
-    margin: 10px;
+    flex: 1; /* Grow to fill available space */
+    margin: 10px; /* Margin for spacing between items */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeInUp 1s ease-in-out;
     font-family: 'Poppins', sans-serif; /* Updated font */
     font-size: 16px; /* Adjust the base font size for readability */
     line-height: 1.6; /* Improve text spacing for readability */
+    min-width: 250px; /* Minimum width to ensure readability */
+}
+
+/* Ensure items have the same height */
+.mission, .vision, .core-values {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
 }
 
 .mission:hover, .vision:hover, .core-values:hover {
@@ -327,9 +388,20 @@ header:hover {
 /* Lists within Mission and Core Values */
 .mission ul, .core-values ul {
     list-style: disc;
-    margin-left: 20px;
+    margin-left: 5px;
+    margin-right: 18px;
     font-family: 'Poppins', sans-serif; /* List font */
     font-size: 1rem; /* Ensure consistent list font size */
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .mission-vision {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .mission, .vision, .core-values {
+        width: 100%; /* Full width on small screens */
+    }
 }
 
 /* Keyframes for animations */
@@ -375,6 +447,7 @@ header:hover {
     position: relative; /* Necessary for positioning the pseudo-element */
 }
 
+
 .board-of-directors::before {
     content: '';
     position: absolute;
@@ -404,17 +477,17 @@ header:hover {
     text-transform: uppercase;
     letter-spacing: 2px; /* Wider letter spacing */
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Text shadow for visibility */
-    animation: slideIn 1s ease-in-out;
+    animation: fadeInUp 1s ease-in-out;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Feature Cards */
+/* Feature Cards Container */
 .feature-cards {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: space-between; /* Space items evenly with space around them */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 20px; /* Space between items */
 }
 
 /* Individual Board Feature Cards */
@@ -422,7 +495,8 @@ header:hover {
     background-color: #F9DB3D; /* Updated background color */
     border-radius: 15px;
     padding: 30px;
-    width: 30%;
+    flex: 1; /* Grow to fill available space */
+    min-width: 250px; /* Minimum width to ensure readability */
     margin: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
@@ -498,7 +572,18 @@ header:hover {
     }
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .feature-cards {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
 
+    .board-feature-card {
+        width: 100%; /* Full width on small screens */
+        max-width: 400px; /* Limit the width to avoid overly large cards */
+    }
+}
 /* Partnership Section */
 /* Partnership Section */
 .partnerships {
@@ -507,9 +592,9 @@ header:hover {
     border-radius: 15px;
     margin: 40px auto;
     max-width: 1600px;
-    text-align: center;
     position: relative; /* Necessary for positioning the pseudo-element */
     animation: fadeIn 1s ease-in-out;
+    text-align: center;
 }
 
 .partnerships::before {
@@ -523,14 +608,15 @@ header:hover {
     border-top-left-radius: 15px; /* Match border radius of the section */
     border-top-right-radius: 15px; /* Match border radius of the section */
 }
+.partnerships-header {
+    margin-bottom: 25px; /* Space between header and cards */
+}
 
-
-.partnerships h2 {
+.partnerships-header h2 {
     color: #F9DB3D;
     background: linear-gradient(135deg, #333 30%, #555 100%); /* Gradient for a modern touch */
     padding: 15px 30px;
     border-radius: 12px;
-    margin-bottom: 25px;
     display: inline-block;
     text-align: center;
     font-family: 'Playfair Display', sans-serif; /* Stylish font */
@@ -538,9 +624,13 @@ header:hover {
     text-transform: uppercase; /* Bold uppercase text */
     letter-spacing: 2px; /* Wider letter spacing */
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
-    animation: slideIn 1s ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
+    animation: fadeInUp 1s ease-in-out;
+}
+.partnerships-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of cards if there's not enough space */
+    justify-content: center; /* Center the cards horizontally */
+    gap: 20px; /* Space between cards */
 }
 
 /* Partnership Card */
@@ -548,8 +638,7 @@ header:hover {
     background-color: #F9DB3D; /* Updated to match the yellow color scheme */
     border-radius: 12px;
     padding: 30px;
-    margin: 0 auto;
-    max-width: 650px;
+    max-width: 300px; /* Adjusted max-width for better fit */
     text-align: center;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -564,13 +653,13 @@ header:hover {
 
 /* Partner Logo */
 .partner-logo {
-    width: 150px;
+    width: 120px; /* Adjusted size for better alignment */
     height: auto;
     margin-bottom: 20px;
     border-radius: 10px;
     border: 3px solid #333;
     transition: border-color 0.3s ease, transform 0.3s ease;
-}
+}   
 
 .partnership-card:hover .partner-logo {
     border-color: #F7E06C;
@@ -880,29 +969,17 @@ header:hover {
 }
 
 #product-categories h2 {
-    font-size: 36px; /* Larger and more prominent */
-    color: #F7E06C; /* Beautiful gold color */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* Darker gradient for the header */
-    padding: 20px; /* Add padding to the header for better spacing */
-    border-radius: 8px; /* Rounded corners */
-    margin-bottom: 30px; /* Increased margin for better spacing */
-    text-align: center; /* Center-align the header */
-    font-family: 'Playfair Display', serif; /* Stylish font for the header */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
-}
-
-#product-categories h2 {
-    font-size: 40px; /* Slightly larger for more prominence */
-    color: #F7E06C; /* Retain the beautiful gold color */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* Darker gradient for added depth */
-    padding: 25px 35px; /* More balanced padding */
-    border-radius: 12px; /* Softer, more rounded corners */
-    margin-bottom: 35px; /* More space beneath the header */
-    text-align: center; /* Keep the header center-aligned */
-    font-family: 'Playfair Display', serif; /* Keep the stylish serif font */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Deeper shadow for more emphasis */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a slight box shadow for depth */
+    font-size: 40px;
+    color: #F7E06C;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    padding: 25px 35px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -912,7 +989,7 @@ header:hover {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px; /* Adds spacing between the category cards */
+    gap: 0px; /* Adds spacing between the category cards */
 }
 
 /* Individual Category Card */
@@ -1118,6 +1195,8 @@ header:hover {
         max-width: calc(100% - 40px);
     }
 }
+
+
 
 
 
@@ -1900,18 +1979,6 @@ main {
     color: #555; /* Medium grey text */
 }
 
-/* Thank You Message Styles */
-/* Thank You Message Styles */
-.thank-you-message {
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
-    display: none;
-    margin-top: 20px;
-    color: #F9DB3D; /* Yellow text */
-    text-align: center; /* Center the text */
-    font-size: 1.2em; /* Slightly larger text */
-}
 
 /* Fade-in animation */
 @keyframes fadeIn {
@@ -1935,24 +2002,28 @@ main {
     padding: 40px 20px;
     background: linear-gradient(135deg, #F9DB3D, #F7E06C); /* Gradient background */
     border-radius: 10px; /* Rounded corners */
-    margin: 40px 20px;
+    margin: 10px 10px;
 }
 
 .contact-details-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    align-items: flex-start; /* Aligns items to the top */
+    justify-content: space-between; /* Adds space between the image and details */
+    gap: 40px; /* Space between the image and contact details */
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
 }
 
+.contact-image {
+    flex: 1; /* Takes up one part of the space */
+    max-width: 500px;
+    margin-left: 100px;
+    margin-top: 50px;
+}
 .contact-image img {
-    width: 500px;
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-	margin: 10px 120px;
 }
-
 .contact-info h1 {
     font-size: 2.5em;
     color: #333; /* Yellow text */
@@ -1976,7 +2047,8 @@ main {
 }
 
 .contact-details {
-    max-width: 600px
+    flex: 2; /* Takes up two parts of the space for a larger width */
+    max-width: 600px;
 }
 
 .contact-details i {
@@ -2025,7 +2097,8 @@ main {
 .social-media {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: -15px;
+    margin-left: -20px;
     justify-content: flex-start;
 }
 
@@ -2047,7 +2120,6 @@ main {
 .address-container {
     position: relative;
     display: flex;
-    align-items: center; /* Aligns items vertically in the center */
 }
 
 .address-container a {
@@ -2084,6 +2156,21 @@ main {
     color: #333; /* Dark grey text */
 }
 
+@media (max-width: 768px) {
+    .contact-details-wrapper {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contact-image img {
+        max-width: 80%; /* Reduce image size on smaller screens */
+    }
+    
+    .contact-details {
+        max-width: 100%;
+    }
+}
 /* Fade-in animation */
 @keyframes fadeIn {
     from {
@@ -2158,26 +2245,32 @@ main {
 footer {
     background: linear-gradient(135deg, #333, #555); /* Gradient background for depth */
     color: #fff;
-    padding: 40px 0;
-    position: relative;
+    padding: 20px 5%;
     border-top: 5px solid #F9DB3D; /* Yellow line at the top */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    text-align: center;
+    flex-direction: column;
     animation: fadeIn 1s ease-in-out;
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+/* Footer Logo Styling */
 .footer-logo {
-    margin-left: 20px;
-    animation: logoSlideIn 1.5s ease-in-out; /* Slide-in animation for logo */
+    flex: 1; /* Takes up available space */
+    max-width: 220px;
+    animation: logoSlideIn 1s ease-in-out;
 }
 
 .footer-logo img {
-    max-width: 220px;
-    height: auto;
-    display: block;
+    max-width: 100%;
     transition: transform 0.3s ease, filter 0.3s ease; /* Added filter transition */
 }
 
@@ -2186,18 +2279,23 @@ footer {
     filter: brightness(1.2); /* Lightens the logo on hover */
 }
 
+/* Footer Links Styling */
 .footer-links {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
-    animation: linksFadeIn 1.2s ease-in-out; /* Fade-in animation for links */
+    text-align: center;
+    gap: 25px;
+    font-size: 1em;
+    animation: linksFadeIn 1.2s ease-in-out;
+    margin-left: 70px; /* Add margin to move links to the right */
 }
+
 
 .footer-links a {
     color: #F9DB3D;
     text-decoration: none;
-    margin: 0 6px;
+    margin: 0px 6px;
     font-size: 1.2em;
     font-family: 'Poppins', sans-serif; /* Stylish font */
     transition: color 0.3s ease, transform 0.3s ease;
@@ -2209,13 +2307,14 @@ footer {
     text-decoration: underline;
 }
 
-/* Social Media Icons Section */
-/* Social Media Icons Section */
+/* Social Media Icons (Aligned Right) */
 .footer-social {
-    display: flex; /* Flexbox for alignment */
-    align-items: center; /* Center icons vertically */
-    margin: 0 20px; /* Adjusted margins for better spacing */
-    animation: iconsFadeIn 1.4s ease-in-out; /* Fade-in animation for social icons */
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    align-items: center;
+    animation: iconsFadeIn 1.4s ease-in-out;
 }
 
 .footer-social a {
@@ -2231,13 +2330,102 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Added shadow effect */
 }
 
+
+
+
+/* Centered 'All Rights Reserved' */
+.footer-rights {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    animation: textFadeIn 1.6s ease-in-out;
+    width: 100%;
+}
+
+.footer-links a {
+    font-size: 1em;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #f9db3d; /* Link hover color */
+}
+
+/* Social Media Icons (Aligned to the Right) */
+.footer-social {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    animation: iconsFadeIn 1.4s ease-in-out;
+    align-items: center;
+    width: 15%; /* Align to the right */
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+}
+
 /* Copyright Text Styling */
 footer p {
-    font-size: 1em; /* Adjust font size */
-    margin-top: 15px;
-    font-family: 'Roboto', sans-serif; /* Use modern font */
-    opacity: 0.8; /* Slight transparency */
-    animation: textFadeIn 1.6s ease-in-out; /* Fade-in animation */
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    opacity: 0.8;
+    animation: textFadeIn 1.6s ease-in-out;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+    footer {
+        padding: 20px 3%; /* Less padding for mid-sized screens */
+    }
+    .footer-logo {
+        max-width: 120px; /* Smaller logo */
+        width: 20%; /* Adjust width */
+    }
+    .footer-links a {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px; /* Default padding for mobile */
+    }
+    .footer-logo {
+        max-width: 100px;
+        width: 25%; /* Adjust logo size for smaller screens */
+        margin-bottom: 20px;
+    }
+    .footer-links {
+        gap: 20px; /* Reduce space between links */
+    }
+    .footer-social {
+        gap: 10px; /* Smaller gap between icons */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo {
+        max-width: 80px;
+        width: 30%;
+    }
+    .footer-links a {
+        font-size: 0.8em; /* Smaller text for links */
+    }
+    .footer-social img {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 /* Animations */
@@ -2264,15 +2452,4 @@ footer p {
 @keyframes textFadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
-    .footer-logo, .footer-links, .footer-social {
-        margin-bottom: 20px;
-    }
 }

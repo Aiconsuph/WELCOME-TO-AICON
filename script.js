@@ -1,5 +1,4 @@
 
-
 //JAVASCRIPT FOR SERVICES PAGE
 
 // JavaScript for image slider functionality
