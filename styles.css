@@ -13,18 +13,26 @@ html {
 }
 
 /* General Navigation Bar Styles */
+/* General Navigation Bar Styles */
+/* General Navigation Bar Styles */
+/* General Navigation Bar Styles */
 header {
-    background-color: #F9DB3D;
-    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(249, 219, 61, 0.75) 0%, rgba(252, 235, 108, 0.75) 100%); /* Slightly more transparent */
+    padding: 2px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background 0.6s ease, box-shadow 0.3s ease; /* Smooth transition */
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-header:hover {
-    background-color: #F0C300;
+/* Scrolled Header Styles */
+.header-scrolled {
+    background: linear-gradient(135deg, rgba(249, 219, 61, 0.6) 0%, rgba(252, 235, 108, 0.6) 100%); /* Slightly more transparent when scrolled */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Adjust shadow if needed */
 }
 
 .navbar {
@@ -32,56 +40,100 @@ header:hover {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 15px;
+    gap: 25px;
+    position: relative;
 }
 
 .navbar li {
     margin: 0;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.navbar li a {
+.main-link {
     color: #000;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 12px 24px;
+    border-radius: 6px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
 }
 
-.navbar li a:hover, .navbar li a.active {
+.main-link:hover {
     background-color: #333;
     color: #F9DB3D;
+    transform: scale(1.08);
+    border-color: #000;
+}
+/* Active Class */
+.main-link.active, .dropdown-toggle.active {
+    background-color: #333;
+    color: #F9DB3D;
+    border-color: #F9DB3D;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for active state */
     transform: scale(1.05);
+}
+/* Dropdown Button Styling */
+.dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.dropdown-toggle i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    color: #333;
+}
+
+.dropdown-toggle:hover i {
+    transform: rotate(180deg); /* Rotate arrow on hover */
+}
+
+.dropdown-toggle:hover {
+    color: #333;
+    transform: rotate(180deg); /* Rotate arrow on hover */
 }
 
 /* Dropdown Menu Styling */
 .nav-dropdown .dropdown-menu {
-    display: none; /* Hidden by default */
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: #F9DB3D;
     list-style-type: none;
-    padding: 10px 0;
+    padding: 15px 0;
     margin: 0;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.nav-dropdown .dropdown-menu li {
-    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .nav-dropdown .dropdown-menu li a {
     color: #333;
-    padding: 10px 20px;
+    padding: 12px 20px;
     display: block;
     text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-dropdown .dropdown-menu li a:hover {
@@ -89,45 +141,90 @@ header:hover {
     color: #F9DB3D;
 }
 
-/* Show dropdown on hover for desktop */
-.nav-dropdown:hover .dropdown-menu {
+/* Show dropdown with transition */
+.nav-dropdown.show .dropdown-menu {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Ensure it works well on smaller screens */
+/* Logo Styles */
+.logo-container {
+    padding: 5px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    max-height: 80px;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-container:hover .logo {
+    filter: brightness(1.3);
+    transform: rotate(2deg);
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+    }
+
     .navbar {
         flex-direction: column;
         gap: 10px;
     }
 
+    .main-link {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-toggle {
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
     .nav-dropdown .dropdown-menu {
         position: static;
         box-shadow: none;
+        padding: 10px 0;
+        border-radius: 0;
     }
 }
 
 /* Logo Styles */
 .logo-container {
-    padding: 5px; /* Padding around the logo */
-    border-radius: 5px; /* Rounded corners */
+    padding: 5px; 
+    border-radius: 5px;
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling and shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-container:hover {
-    transform: scale(1.1); /* Slightly enlarge logo on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly more pronounced shadow */
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
-    max-height: 100px; /* Adjust the size of the logo */
-    transition: filter 0.3s ease; /* Smooth transition for filter effects */
+    max-height: 100px;
+    transition: filter 0.3s ease;
 }
 
 .logo-container:hover .logo {
-    filter: brightness(1.2); /* Brighten logo on hover */
+    filter: brightness(1.2);
 }
 
 /* Welcome Section Styles */
@@ -630,7 +727,7 @@ header:hover {
     display: flex;
     flex-wrap: wrap; /* Allows wrapping of cards if there's not enough space */
     justify-content: center; /* Center the cards horizontally */
-    gap: 20px; /* Space between cards */
+    gap: 10px; /* Space between cards */
 }
 
 /* Partnership Card */
@@ -1993,95 +2090,96 @@ main {
 }
 
 /* Contact Section Styles */
+/* Contact Section Styles */
 #contact {
     padding: 20px 10px;
-    text-align: grid;
+    text-align: center;
 }
 
 .contact-info {
     padding: 40px 20px;
-    background: linear-gradient(135deg, #F9DB3D, #F7E06C); /* Gradient background */
-    border-radius: 10px; /* Rounded corners */
-    margin: 10px 10px;
+    background: linear-gradient(135deg, #F9DB3D, #F7E06C);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.info-segment {
+    text-align: center;
 }
 
 .contact-details-wrapper {
     display: flex;
-    align-items: flex-start; /* Aligns items to the top */
-    justify-content: space-between; /* Adds space between the image and details */
-    gap: 40px; /* Space between the image and contact details */
+    align-items: center; /* Center image and details vertically */
+    justify-content: space-between; /* Space between image and details */
+    gap: 20px;
     flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    margin: 0 auto; /* Center container */
+    max-width: 1200px; /* Restrict max width for layout control */
 }
 
 .contact-image {
-    flex: 1; /* Takes up one part of the space */
+    flex: 1;
     max-width: 500px;
-    margin-left: 100px;
-    margin-top: 50px;
+    margin: 0; /* Remove the margin-left for flexibility */
+    order: 1; /* Image comes first */
 }
+
 .contact-image img {
     width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .contact-info h1 {
     font-size: 2.5em;
-    color: #333; /* Yellow text */
+    color: #333;
     margin-bottom: 15px;
-	border-bottom: 4px solid #333; /* Grey underline */
+    border-bottom: 4px solid #333;
     display: inline-block;
     padding-bottom: 5px;
-	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.contact-image img:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
 }
 
 .contact-info p {
     font-size: 1.2em;
-    color: #000; /* Black text */
+    color: #000;
     margin: 10px 0;
-	
 }
 
 .contact-details {
-    flex: 2; /* Takes up two parts of the space for a larger width */
+    flex: 2;
     max-width: 600px;
+    order: 2; /* Ensure details come after the image */
+    text-align: left; /* Align text to the left */
 }
 
 .contact-details i {
-    margin-right: 8px; /* Space between icon and text */
-    color: #333; /* Dark grey icon color */
+    margin-right: 8px;
+    color: #333;
 }
 
 .contact-details a {
     font-weight: bold;
-    color: #333; /* Dark grey text */
+    color: #333;
     text-decoration: none;
-    font-size: 15px; /* Adjusted font size to be slightly smaller */
+    font-size: 15px;
 }
 
-/* Specific styles for the icons */
 .contact-details .fa-envelope {
-    color: #c71610; /* Yellow color for the email icon */
+    color: #c71610;
 }
 
 .contact-details .fa-whatsapp {
-    color: #25D366; /* Green color for WhatsApp icon */
+    color: #25D366;
 }
 
 .contact-details .fa-viber {
-    color: #7360F2; /* Purple color for Viber icon */
+    color: #7360F2;
 }
-
-
 
 .contact-details p {
     font-size: 1em;
-	font-weight: bold;
-    color: #333; /* Black text */
+    font-weight: bold;
+    color: #333;
     margin: 10px 0;
     display: flex;
     align-items: center;
@@ -2089,26 +2187,24 @@ main {
 
 .contact-details h2 {
     font-size: 2em;
-    color: #F9DB3D; /* Yellow text */
+    color: #F9DB3D;
     margin-bottom: 20px;
 }
 
 /* Social Media Section */
 .social-media {
     display: flex;
-    gap: 15px;
-    margin-top: -15px;
-    margin-left: -20px;
-    justify-content: flex-start;
+    gap: 10px; /* Reduced gap between social media items */
+    margin-top: 20px;
+    justify-content: flex-start; /* Align items to the start */
 }
 
 .social-media a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333; /* Dark grey text */
+    color: #333;
     font-weight: bold;
-
 }
 
 .social-icon {
@@ -2117,69 +2213,58 @@ main {
     margin-right: 8px;
     transition: transform 0.3s;
 }
+
 .address-container {
-    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    margin-top: 20px;
 }
 
 .address-container a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: #333; /* Dark grey text */
+    color: #333;
 }
 
-
 .address-text {
-    color: #333; /* Dark grey text */
+    color: #333;
     font-weight: bold;
-    font-size: 14px; /* Adjust the font size as needed */
-    text-align: left; /* Align text to the left */
+    font-size: 14px;
 }
 
 .pin-icon {
     display: block;
     width: 35px;
     height: 35px;
-    margin-right: 10px; /* Space between the icon and the text */
+    margin-right: 10px;
     transition: transform 0.3s;
 }
 
-
 .social-icon:hover {
-	transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .contact-details p:last-child {
     margin-top: 20px;
     font-weight: bold;
-    color: #333; /* Dark grey text */
+    color: #333;
 }
 
 @media (max-width: 768px) {
     .contact-details-wrapper {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
     
     .contact-image img {
-        max-width: 80%; /* Reduce image size on smaller screens */
+        max-width: 80%;
     }
     
     .contact-details {
         max-width: 100%;
-    }
-}
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -2277,7 +2362,11 @@ footer {
 .footer-logo img:hover {
     transform: scale(1.1);
     filter: brightness(1.2); /* Lightens the logo on hover */
+	transform: rotate(2deg);
+	filter: brightness(1.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
 
 /* Footer Links Styling */
 .footer-links {
