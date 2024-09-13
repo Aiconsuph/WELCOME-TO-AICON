@@ -17,12 +17,21 @@
             <img src="nlogo.png" alt="AICON Logo" class="logo">
         </a>
     </div>
-    <nav>
+     <nav>
         <ul class="navbar">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li class="nav-dropdown">
+                <a href="index.html" class="main-link active" >Home</a>
+                <button class="dropdown-toggle">&#9662;</button>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#welcome-section">Welcome</a></li>
+                    <li><a href="index.html#reasons-to-choose">Perks</a></li>
+                    <li><a href="index.html#company-updates">Updates</a></li>
+                </ul>
+            </li>
 
             <li class="nav-dropdown">
-                <a href="about.html" class="dropdown-btn">About</a>
+                <a href="about.html" class="main-link">About</a>
+                <button class="dropdown-toggle">&#9662;</button> <!-- Down button for dropdown -->
                 <ul class="dropdown-menu">
                     <li><a href="about.html#about-us">About Us</a></li>
                     <li><a href="about.html#board-of-directors">Board Of Directors</a></li>
@@ -31,7 +40,8 @@
             </li>
 
             <li class="nav-dropdown">
-                <a href="services.html" class="dropdown-btn">Services</a>
+                <a href="services.html" class="main-link">Services</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
                     <li><a href="services.html#our-products">Products</a></li>
                     <li><a href="services.html#heavy-equipment-rental">Heavy Equipment Rental</a></li>
@@ -41,7 +51,8 @@
             </li>
 
             <li class="nav-dropdown">
-                <a href="projects.html" class="dropdown-btn">Projects</a>
+                <a href="projects.html" class="main-link">Projects</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
                     <li><a href="projects.html#completed-projects">Completed Projects Philippines</a></li>
                     <li><a href="projects.html#bahrain-projects">Completed Projects Bahrain</a></li>
@@ -49,10 +60,11 @@
             </li>
 
             <li class="nav-dropdown">
-                <a href="contact.html" class="dropdown-btn">Contact</a>
+                <a href="contact.html" class="main-link">Contact</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
-                    <li><a href="contact.html#form">Newsletter Form</a></li>
-                    <li><a href="contact.html#contact">Contact Details</a></li>
+                    <li><a href="contact.html#toform">Newsletter Form</a></li>
+                    <li><a href="contact.html#tocontact">Contact Details</a></li>
                 </ul>
             </li>
         </ul>
@@ -131,9 +143,9 @@
             <img src="nlogo.png" alt="Company Logo"></a>
         </div>
         <div class="footer-links">
-            <a href="contact.html">Contact Us</a> |
+            <a href="contact.html#tocontact">Contact Us</a> |
             <a href="services.html">Services</a> |
-            <a href="contact.html">Get Newsletter</a>
+            <a href="contact.html#toform">Get Newsletter</a>
         </div>
         <div class="footer-social">
             <a href="https://www.facebook.com/ataiconsuph/" target="_blank">

@@ -20,10 +20,11 @@
 		<a href="index.html">
             <img src="nlogo.png" alt="AICON Logo" class="logo"> </a>
         </div>
-        <nav>
-             <ul class="navbar">
-                   <li class="nav-dropdown">
-                <a href="index.html" class="dropdown-btn">Home</a>
+     <nav>
+        <ul class="navbar">
+            <li class="nav-dropdown">
+                <a href="index.html" class="main-link" >Home</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
                     <li><a href="index.html#welcome-section">Welcome</a></li>
                     <li><a href="index.html#reasons-to-choose">Perks</a></li>
@@ -31,10 +32,19 @@
                 </ul>
             </li>
 
-               <li><a href="about.html" class="active">About Us</a></li>
+            <li class="nav-dropdown">
+                <a href="about.html" class="main-link active">About</a>
+                <button class="dropdown-toggle">&#9662;</button> <!-- Down button for dropdown -->
+                <ul class="dropdown-menu">
+                    <li><a href="about.html#about-us">About Us</a></li>
+                    <li><a href="about.html#board-of-directors">Board Of Directors</a></li>
+                    <li><a href="about.html#partnerships">Our Partners</a></li>
+                </ul>
+            </li>
 
             <li class="nav-dropdown">
-                <a href="services.html" class="dropdown-btn">Services</a>
+                <a href="services.html" class="main-link">Services</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
                     <li><a href="services.html#our-products">Products</a></li>
                     <li><a href="services.html#heavy-equipment-rental">Heavy Equipment Rental</a></li>
@@ -44,7 +54,8 @@
             </li>
 
             <li class="nav-dropdown">
-                <a href="projects.html" class="dropdown-btn">Projects</a>
+                <a href="projects.html" class="main-link">Projects</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
                     <li><a href="projects.html#completed-projects">Completed Projects Philippines</a></li>
                     <li><a href="projects.html#bahrain-projects">Completed Projects Bahrain</a></li>
@@ -52,10 +63,11 @@
             </li>
 
             <li class="nav-dropdown">
-                <a href="contact.html" class="dropdown-btn">Contact</a>
+                <a href="contact.html" class="main-link">Contact</a>
+                <button class="dropdown-toggle">&#9662;</button>
                 <ul class="dropdown-menu">
-                    <li><a href="contact.html#form">Newsletter Form</a></li>
-                    <li><a href="contact.html#contact">Contact Details</a></li>
+                    <li><a href="contact.html#toform">Newsletter Form</a></li>
+                    <li><a href="contact.html#tocontact">Contact Details</a></li>
                 </ul>
             </li>
         </ul>
@@ -124,13 +136,23 @@
     </div>
     <div class="partnerships-cards">
         <div class="partnership-card">
-            <img src="njcmslogo.png" alt="Partner Logo" class="partner-logo">
+            <img src="jcms1logo.png" alt="Partner Logo" class="partner-logo">
             <h3>JCMS ELECTRICAL SUPPLY</h3>
             <p>Details about the partnership with this company, including key achievements and goals.</p>
         </div>
         <div class="partnership-card">
-            <img src="tslogo.png" alt="Partner Logo" class="partner-logo">
+            <img src="teewee1logo.png" alt="Partner Logo" class="partner-logo">
             <h3>TEEWEE STEELS CORPORATION</h3>
+            <p>Details about the partnership with this company, including key achievements and goals.</p>
+        </div>
+		        <div class="partnership-card">
+            <img src="zenith1logo.png" alt="Partner Logo" class="partner-logo">
+            <h3>SHANGHAI ZENITH MINERAL </h3>
+            <p>Details about the partnership with this company, including key achievements and goals.</p>
+        </div>
+		        <div class="partnership-card">
+            <img src="atn1logo.png" alt="Partner Logo" class="partner-logo">
+            <h3>ATN HOLDINGS INC.</h3>
             <p>Details about the partnership with this company, including key achievements and goals.</p>
         </div>
     </div>
@@ -145,9 +167,9 @@
             <img src="nlogo.png" alt="Company Logo"></a>
         </div>
         <div class="footer-links">
-            <a href="contact.html">Contact Us</a> |
+            <a href="contact.html#tocontact">Contact Us</a> |
             <a href="services.html">Services</a> |
-            <a href="contact.html">Get Newsletter</a>
+            <a href="contact.html#toform">Get Newsletter</a>
         </div>
         <div class="footer-social">
             <a href="https://www.facebook.com/ataiconsuph/" target="_blank">
