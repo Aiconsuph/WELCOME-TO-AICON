@@ -378,8 +378,7 @@ header {
 
 /* About Section Styles */
 /* About Us Section */
-
-
+/* About Section */
 #about {
     padding: 40px 20px;
     background: linear-gradient(135deg, #333 0%, #000 100%); /* Restored original background */
@@ -405,100 +404,132 @@ header {
     letter-spacing: 2px; /* More spacing for a clean look */
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Add shadow for better visibility */
     animation: fadeInUp 1s ease-in-out;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* Center heading container */
+/* About Us Section */
 .about-us {
     text-align: center; /* Ensure child elements align centrally */
     margin-bottom: 40px; /* Add some spacing below the heading */
-
 }
 
-/* Adjust paragraph with left and right margins */
+.about-content {
+    display: flex;
+    flex-direction: row; /* Align children in a row */
+    justify-content: space-between; /* Space out children */
+    align-items: flex-start; /* Align children at the top */
+    gap: 20px; /* Add some space between items */
+}
+
+/* Flex container for paragraph and tabs */
+.about-main-container {
+    display: flex;
+    flex-direction: row; /* Align children in a row */
+    gap: 20px; /* Space between items */
+}
+
+/* Paragraph and Tabs container styles */
+.about-paragraph-container {
+    flex: 1; /* Allow the paragraph container to grow */
+}
+
+.tabs-container {
+    flex: 1; /* Allow the tabs container to grow */
+    display: flex;
+    flex-direction: column; /* Stack tabs and content vertically */
+}
+
+/* Upgraded Paragraph Design with Improved Alignment */
 .about-paragraph {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ccc;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 0 auto 40px; /* Margin auto for horizontal centering */
-    max-width: 900px; /* Add max-width to avoid paragraph stretching */
-    transition: transform 0.3s ease;
-    animation: fadeInUp 1s ease-in-out;
-	font-family: 'Poppins', sans-serif;
+    font-size: 18px; /* Slightly larger font size for better readability */
+    line-height: 1.8; /* Increased line height for improved readability */
+    color: #f5f5f5; /* Lighter color for better contrast */
+    background: linear-gradient(135deg, rgba(51, 51, 51, 0.9), rgba(51, 51, 51, 0.7)); /* Gradient background for depth */
+    padding: 30px; /* Increased padding for a more spacious look */
+    border-radius: 15px; /* More rounded corners for a softer appearance */
+    margin: 20px auto; /* Centering with vertical margin for spacing */
+    max-width: 800px; /* Slightly narrower max-width for better alignment on larger screens */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    animation: fadeInUp 1s ease-in-out; /* Apply fade-in-up animation */
+    font-family: 'Poppins', sans-serif; /* Stylish and clean font */
+    text-align: justify; /* Justify text for a cleaner look */
 }
 
+/* Hover Effect */
 .about-paragraph:hover {
-    transform: scale(1.05);
+    transform: scale(1.03); /* Slightly enlarge on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7); /* Increase shadow on hover for emphasis */
 }
 
-/* Mission, Vision & Core Values */
+/* Ensure margin auto for horizontal centering and additional spacing */
+@media (max-width: 768px) {
+    .about-paragraph {
+        max-width: 100%; /* Full width on smaller screens for better use of space */
+        margin: 20px; /* Adjust margins for mobile devices */
+    }
+}
+
 /* Mission, Vision & Core Values */
 .mission-vision {
     display: flex;
     justify-content: space-between; /* Distribute space evenly between items */
     align-items: stretch; /* Ensure all items have the same height */
     flex-wrap: wrap; /* Allow wrapping if necessary */
-    gap: 0px; /* Space between items */
+    gap: 10px; /* Space between items */
 }
 
-/* Individual Mission, Vision, Core Values Cards */
-.mission, .vision, .core-values {
-    background-color: #F9DB3D; /* Updated background color */
-    color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    flex: 1; /* Grow to fill available space */
-    margin: 10px; /* Margin for spacing between items */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 1s ease-in-out;
-    font-family: 'Poppins', sans-serif; /* Updated font */
-    font-size: 16px; /* Adjust the base font size for readability */
-    line-height: 1.6; /* Improve text spacing for readability */
-    min-width: 250px; /* Minimum width to ensure readability */
+/* Tabs Container */
+.tabs-container {
+    margin-top: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Added transition for smooth effect */
 }
 
-/* Ensure items have the same height */
-.mission, .vision, .core-values {
+/* Tabs */
+.tabs {
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    justify-content: center;
+    margin-bottom: 20px;
+    transform: translateY(0); /* Move content to its original position */
+    animation: fadeInUp 1s ease-in-out; /* Apply fade-in-up animation */
 }
 
-.mission:hover, .vision:hover, .core-values:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
-}
-
-/* Headers for Mission, Vision, Core Values */
-.mission h3, .vision h3, .core-values h3 {
+/* Tab Buttons */
+.tab-button {
+    background-color: #F9DB3D;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
     color: #333;
-    font-family: 'Poppins', sans-serif; /* Matching header font */
-    font-weight: 600; /* Bold font for emphasis */
-    font-size: 1.5rem; /* Adjust font size for headers */
-    margin-bottom: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for button hover effect */
 }
 
-/* Lists within Mission and Core Values */
-.mission ul, .core-values ul {
-    list-style: disc;
-    margin-left: 5px;
-    margin-right: 18px;
-    font-family: 'Poppins', sans-serif; /* List font */
-    font-size: 1rem; /* Ensure consistent list font size */
+.tab-button.active {
+    background-color: #FFD700;
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .mission-vision {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-    }
 
-    .mission, .vision, .core-values {
-        width: 100%; /* Full width on small screens */
-    }
+.tab-button:hover {
+    background-color: #FFC107; /* Slightly different color for hover effect */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    opacity: 0; /* Start with invisible content */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for fade-in and slide-up effect */
+    transform: translateY(20px); /* Start with content slightly below */
+}
+
+/* Active Tab Content */
+.tab-content.active {
+    display: block;
+    opacity: 1; /* Make content visible */
+    transform: translateY(0); /* Move content to its original position */
+    animation: fadeInUp 1s ease-in-out; /* Apply fade-in-up animation */
 }
 
 /* Keyframes for animations */
@@ -533,6 +564,89 @@ header {
     }
 }
 
+@keyframes backgroundAnimation {
+    0% { background-color: #F9DB3D; }
+    50% { background-color: #FFD700; }
+    100% { background-color: #F9DB3D; }
+}
+
+/* Individual Mission, Vision, Core Values Cards */
+/* Ensure all cards have the same margins */
+/* Ensure all cards have the same margins */
+.mission, .vision, .core-values {
+    background-color: #F9DB3D; /* Updated background color */
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    flex: 1; /* Grow to fill available space */
+    margin: 20px; /* Uniform margin for spacing between items */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease-in-out;
+    font-family: 'Poppins', sans-serif; /* Updated font */
+    font-size: 16px; /* Adjust the base font size for readability */
+    line-height: 1.6; /* Improve text spacing for readability */
+    min-width: 250px; /* Minimum width to ensure readability */
+}
+
+/* Reset margin and padding to prevent unintended spacing */
+.mission, .vision, .core-values {
+    margin: 20px; /* Uniform margin for spacing */
+    padding: 20px; /* Consistent padding */
+}
+
+/* Ensure that no extra margin or padding is applied */
+.mission * {
+    margin: 0; /* Reset margins */
+    padding: 0; /* Reset padding */
+}
+
+.vision * {
+    margin: 0; /* Reset margins */
+    padding: 0; /* Reset padding */
+}
+
+.core-values * {
+    margin: 0; /* Reset margins */
+    padding: 0; /* Reset padding */
+}
+
+/* Additional rules for hover effect */
+.mission:hover, .vision:hover, .core-values:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
+
+/* Headers for Mission, Vision, Core Values */
+.mission h3, .vision h3, .core-values h3 {
+    color: #333;
+    font-family: 'Poppins', sans-serif; 
+    font-weight: 700; /* Heavier weight for more impact */
+    font-size: 1.75rem; /* Slightly larger for emphasis */
+    margin-bottom: 15px; /* More space below headings */
+}
+
+/* Lists within Mission and Core Values */
+.mission ul, .core-values ul {
+    list-style: disc;
+    margin-left: 20px; /* Adjusted for better alignment */
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+
+/* Ensure CSS consistency and responsiveness */
+@media (max-width: 768px) {
+    .about-content, .about-main-container, .mission-vision {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .mission, .vision, .core-values {
+        margin: 10px 0; /* Adjust margin for mobile view */
+        width: 100%; /* Full width for better alignment */
+    }
+}
 /* Board of Directors Section */
 /* Board of Directors Section */
 .board-of-directors {
@@ -586,7 +700,42 @@ header {
     flex-wrap: wrap; /* Allow wrapping if needed */
     gap: 20px; /* Space between items */
 }
+/* Board Feature Card Description */
+.board-feature-card .description {
+    display: none; /* Hide description initially */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+    margin-top: 15px;
+}
 
+/* Toggle Button */
+.toggle-description {
+    background: linear-gradient(135deg, #F9DB3D, #F7E06C); /* Gradient background */
+    color: #333; /* Text color */
+    border: none;
+    padding: 12px 24px;
+    margin-top: 15px;
+    border-radius: 25px; /* Rounded edges */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-description:hover {
+    background: linear-gradient(135deg, #F7E06C, #F9DB3D); /* Reverse gradient on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+.toggle-description:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Add custom focus ring */
+}
 /* Individual Board Feature Cards */
 .board-feature-card {
     background-color: #F9DB3D; /* Updated background color */
@@ -609,8 +758,8 @@ header {
 
 /* Feature Card Icon */
 .feature-icon {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     margin-bottom: 15px;
     border: 3px solid #333;
@@ -705,6 +854,7 @@ header {
     border-top-left-radius: 15px; /* Match border radius of the section */
     border-top-right-radius: 15px; /* Match border radius of the section */
 }
+
 .partnerships-header {
     margin-bottom: 25px; /* Space between header and cards */
 }
@@ -723,6 +873,7 @@ header {
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
     animation: fadeInUp 1s ease-in-out;
 }
+
 .partnerships-cards {
     display: flex;
     flex-wrap: wrap; /* Allows wrapping of cards if there's not enough space */
@@ -750,13 +901,13 @@ header {
 
 /* Partner Logo */
 .partner-logo {
-    width: 120px; /* Adjusted size for better alignment */
+    width: 150px; /* Adjusted size for better alignment */
     height: auto;
     margin-bottom: 20px;
     border-radius: 10px;
     border: 3px solid #333;
     transition: border-color 0.3s ease, transform 0.3s ease;
-}   
+}
 
 .partnership-card:hover .partner-logo {
     border-color: #F7E06C;
@@ -774,6 +925,49 @@ header {
     color: #333;
     font-size: 1rem;
     line-height: 1.6;
+}
+
+.short-description {
+    display: block; /* Short description always visible */
+}
+
+.long-description {
+    display: none; /* Hide long description initially */
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+    margin-top: 15px;
+}
+
+/* Button Styling */
+.btn-toggle {
+    background: linear-gradient(135deg, #F9DB3D, #F7E06C); /* Gradient background */
+    color: #333; /* Text color */
+    border: none;
+    padding: 12px 24px;
+    margin-top: 15px;
+    border-radius: 25px; /* Rounded edges */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-toggle:hover {
+    background: linear-gradient(135deg, #F7E06C, #F9DB3D); /* Inverted gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Show/Hide Long Description on Button Click */
+.partnership-card.active .long-description {
+    display: block;
+}
+
+.partnership-card.active .short-description {
+    display: none;
 }
 
 /* Animations */
@@ -796,748 +990,6 @@ header {
         transform: translateY(0);
     }
 }
-
-
-/*SERVICES PAGE CSS*/
-
-/* Our Products Section */
-#our-products {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('bg_ourproducts.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    border-radius: 10px; /* Slightly rounded corners */
-    margin: 20px 0;
-    color: #333; /* Adjust the text color for better contrast */
-    border: 5px solid transparent; /* Transparent border for gradient effect */
-    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
-    border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-}
-
-.our-products-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.products-text {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.products-text h1 {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Darker gradient */
-    padding: 10px 15px; /* Adds some padding around the text */
-    border-radius: 5px; /* Slightly rounded corners */
-    display: inline-block; /* Ensures the background wraps only the text */
-    color: #fff; /* Change text color to white for better contrast */
-    font-family: 'Cinzel', serif; /* Stylish font for headers */
-    font-size: 2rem; /* Adjust size as needed */
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Adds a shadow to improve readability */
-}
-
-.products-text p {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); /* Darker gradient */
-    padding: 10px 15px; /* Adds some padding around the text */
-    border-radius: 5px; /* Slightly rounded corners */
-    display: inline-block; /* Ensures the background wraps only the text */
-    color: #fff; /* Darker text color for better contrast */
-    font-family: 'Montserrat', sans-serif; /* Readable font for body text */
-    font-size: 1rem; /* Adjust size as needed */
-    z-index: 1; /* Ensure the text stays on top */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Darker and more pronounced shadow */
-}
-
-
-.products-slider {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    max-width: 500%;
-    width: 500px; /* Fixed width, adjust as needed */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); /* Very intense F9DB3D gradient */
-    border: 3px solid rgba(0, 0, 0, 0.2); /* Subtle border to match the slider's background */
-    border-radius: 5px; /* Slightly rounded corners */
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slider img {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-    border-radius: 5px;
-}
-
-/* Navigation Buttons */
-.products-slider .prev,
-.products-slider .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-}
-
-
-.products-slider .prev {
-    left: 10px;
-}
-
-.products-slider .next {
-    right: 10px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* Heavy Equipment Rental Section */
-#heavy-equipment-rental {
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgheavy.png') no-repeat center center/cover; /* Background image with light gradient */
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px; /* Space between sections */
-    padding-bottom: 60px; /* Add padding to the bottom */
-    overflow: hidden;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	border-radius: 9px;
-    border: 5px solid transparent; /* Transparent border for gradient effect */
-    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
-    border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-	
-}
-
-/* Header Style */
-#heavy-equipment-rental h2 {
-    font-size: 40px; /* Slightly larger for more prominence */
-    color: #F7E06C; /* Retain the beautiful gold color */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* Darker gradient for added depth */
-    padding: 25px 35px; /* More balanced padding */
-    border-radius: 12px; /* Softer, more rounded corners */
-    margin-bottom: 35px; /* More space beneath the header */
-    text-align: center; /* Keep the header center-aligned */
-    font-family: 'Playfair Display', serif; /* Keep the stylish serif font */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Deeper shadow for more emphasis */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a slight box shadow for depth */
-}
-
-/* Slider Container */
-.equipment-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 40px; /* Space between the slider and next section */
-}
-
-/* Slider Wrapper */
-.equipment-slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%; /* Ensure slider takes up the full width */
-}
-
-/* Each Slide */
-.equipment-slide {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 20px 0; /* Add padding for spacing */
-}
-
-/* Card Style */
-.equipment-card {
-    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); /* Intense gradient */
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    flex: 1 1 calc(25% - 20px); /* 4 cards per slide */
-    max-width: calc(25% - 20px); /* Adjust to fit 4 per slide */
-    margin: 0 10px; /* Space between cards */
-    box-sizing: border-box;
-    text-align: center;
-    color: #333;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
-/* Card Image */
-.equipment-card img {
-    width: 100%; /* Ensure image fits within the card */
-    height: auto;
-    border-radius: 8px;
-}
-
-/* Card Heading */
-.equipment-card h3 {
-    margin-top: 15px;
-    font-size: 20px; /* Slightly larger font size for better readability */
-    color: #fff; /* White text for contrast */
-    font-family: 'Poppins', sans-serif; /* A modern and elegant font */
-    text-transform: uppercase; /* Uppercase for a bold look */
-    letter-spacing: 1.5px; /* Increased spacing for a cleaner look */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add subtle shadow for improved visibility */
-}
-
-
-/* Hover Effect for Cards */
-.equipment-card:hover {
-    background: linear-gradient(135deg, #F7E06C, #F9DB3D); /* Reverse gradient on hover */
-    transform: scale(1.08); /* More noticeable scale on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
-}
-
-
-/* Navigation Buttons */
-.prev1, .next1 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.7); /* Darker background */
-    color: white;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
-}
-
-.prev1 {
-    left: 15px;
-}
-
-.next1 {
-    right: 15px;
-}
-
-.prev1:hover, .next1:hover {
-    background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .equipment-card {
-        flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .equipment-card {
-        flex: 1 1 100%; /* 1 card per row on extra small screens */
-        max-width: 100%;
-    }
-}
-
-
-/* Product Categories Section */
-#product-categories {
-    background: url('bgcategories.jpg'), linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))no-repeat center center/cover; /* Background image with gradient overlay */
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px; /* Space between sections */
-    padding-bottom: 60px; /* Add padding to the bottom */
-    overflow: hidden;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	border-radius: 9px;
-	border: 5px solid transparent; /* Transparent border for gradient effect */
-    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
-    border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-	
-}
-
-#product-categories h2 {
-    font-size: 40px;
-    color: #F7E06C;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
-    padding: 25px 35px;
-    border-radius: 12px;
-    margin-bottom: 35px;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-
-
-/* Categories Cards Container */
-.categories-cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0px; /* Adds spacing between the category cards */
-}
-
-/* Individual Category Card */
-.category-card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    min-width: 45%; /* Ensure they stay in two columns */
-    margin: 10px;
-    transition: transform 0.3s ease-in-out, padding 0.3s ease-in-out; /* Smooth transitions */
-    position: relative; /* To position the expanded list correctly */
-    color: #333; /* Default text color */
-}
-
-/* Adjusting padding when expanded */
-.category-card.expanded {
-    padding-bottom: 40px; /* Increase padding to accommodate the expanded list */
-}
-
-
-/* Category Card Header */
-.category-card h3 {
-    font-size: 20px; /* Slightly larger font size for better emphasis */
-    color: #fff; /* White text color for better contrast */
-    margin-bottom: 15px; /* Increased margin for better spacing */
-    text-align: center;
-    font-family: 'Poppins', sans-serif; /* Apply the stylish font */
-    font-weight: 600; /* Semi-bold weight for emphasis */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a subtle 3D effect */
-}
-
-/* Category Items List */
-.category-card ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* List Items */
-.category-item {
-    font-size: 18px; /* Keep the font size consistent */
-    padding: 12px 0; /* Increased padding for better spacing */
-    cursor: pointer;
-    color: #333; /* Dark color for readability */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
-    border-bottom: 1px solid #ddd;
-    font-family: 'Poppins', sans-serif; /* Apply the stylish font */
-    font-weight: 400; /* Normal weight for readability */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
-}
-
-/* Category Header Styling */
-.category-header {
-    cursor: pointer;
-    font-size: 24px;
-    color: #fff;
-    margin-bottom: 20px; /* Slightly increased margin for more spacing */
-    padding: 18px 25px; /* Adjusted padding for better balance */
-    border-radius: 15px; /* Slightly larger border-radius for a smoother look */
-    background: linear-gradient(135deg, #333, #111); /* Darker gradient for a modern feel */
-    transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Added smooth transitions */
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Enhanced shadow for more depth */
-    border: 3px solid transparent; /* Start with a transparent border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Add a shadow for depth */
-    position: relative; /* Prepare for additional effects */
-    overflow: hidden; /* Prevent overflow on hover effect */
-}
-
-
-
-
-/* Ensure content is above the glow effect */
-.category-header h2, .category-header p {
-    position: relative;
-    z-index: 1;
-}
-
-/* Add a subtle animated background effect */
-.category-header::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-    transition: transform 0.5s ease;
-    transform: rotate(45deg);
-    z-index: 0;
-}
-
-/* Active State for Category Header */
-.category-header.active {
-    background-color: rgba(255, 255, 255, 0.2); /* Subtle white background for active state */
-    border: 2px solid #fff; /* White border to highlight active state */
-    color: #fff; /* Ensure text remains white for contrast */
-    
-}
-
-/* Ensure all category lists are hidden by default */
-.category-list {
-    overflow: hidden; /* Hide overflow */
-    transition: max-height 0.3s ease; /* Smooth transition for height */
-    background: rgba(247, 224, 108, 0.9); /* Light background color with transparency */
-    padding: 20px; /* Increased padding for better spacing */
-    border-radius: 12px; /* More rounded corners for a softer look */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow for subtle depth */
-    margin-top: 10px; /* Space between category lists */
-}
-
-/* Show category list when active */
-.category-list.active {
-    max-height: 1000px; /* Set a large enough value to show the list */
-}
-
-/* Ensure list items are styled for readability */
-.category-list ul {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-}
-
-/* Category Description Hidden by Default */
-.category-description {
-    display: none; /* Hidden by default */
-    margin-left: 20px;
-    font-size: 16px; /* Slightly larger font size for better readability */
-    color: #333; /* Darker color for better contrast */
-    transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition for height and opacity */
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.9); /* Light background color with some transparency */
-    padding: 10px; /* Padding for better spacing */
-    border-radius: 8px; /* Rounded corners for a softer look */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
-    font-family: 'Poppins', sans-serif; /* Apply the stylish font */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
-        margin-top: 10px; /* Added margin to separate from list item */
-}
-
-.category-list ul li {
-    margin-bottom: 10px; /* Space between list items */
-    font-size: 16px; /* Adjust font size for readability */
-    color: #333; /* Dark color for text */
-}
-
-/* Indented Descriptions for Items */
-.category-card ul li p {
-    margin-left: 20px; /* Indentation for descriptions */
-    font-size: 16px; /* Increased font size for better readability */
-    color: #123; /* Slightly lighter color for a modern look */
-    font-style: italic; /* Italicize text for emphasis */
-    font-family: 'Poppins', sans-serif; /* Apply a stylish font */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for a refined effect */
-}
-
-/* Hover Effect for Category Cards */
-
-/* Hover effect for interactivity */
-#product-categories h2:hover, #bahrain-services h2:hover, #heavy-equipment-rental h2:hover {
-    transform: translateY(-5px) scale(1.03); /* Slight lift and scaling on hover */
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.7); /* Enhance the shadow on hover */
-}
-/* Hover Effect */
-.category-item:hover {
-    background-color: #f9f9f9; /* Light background color on hover */
-    color: #f39c12; /* Highlight color on hover */
-}
-
-/* Hover effect */
-
-/* Animate background on hover */
-.category-header:hover::before {
-    transform: translate(50%, 50%) rotate(45deg); /* Create a moving glow effect */
-}
-
-.category-header:hover {
-    background: linear-gradient(135deg, #444, #222); /* Slightly lighter gradient on hover */
-    transform: translateY(-3px) scale(1.02); /* Lift and subtly enlarge the header */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* More prominent shadow on hover */
-    border: 3px solid #F7E06C; /* Gold border on hover */
-    color: #f39c12; /* Highlight color on hover */
-}
-/* Hover Effect */
-.category-header:hover {
-    background: linear-gradient(135deg, #555, #333); /* Lighter gradient on hover */
-    transform: scale(1.05); /* Slight zoom effect on hover */
-    border: 2px solid #fff; /* White border on hover */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .category-card {
-        flex: 1 1 calc(45% - 40px); /* 2 cards per row on smaller screens */
-        max-width: calc(45% - 40px);
-    }
-}
-
-@media (max-width: 480px) {
-    .category-card {
-        flex: 1 1 calc(100% - 40px); /* 1 card per row on extra small screens */
-        max-width: calc(100% - 40px);
-    }
-}
-
-
-
-
-
-
-/* BAHRAIN SERVICES CSS */
-
-
-#bahrain-services {
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgbahrain.png') no-repeat center center/cover; /* Background image with light gradient */
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px; /* Space between sections */
-    padding-bottom: 60px; /* Add padding to the bottom */
-    overflow: hidden;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	border-radius: 9px;
-	    border: 5px solid transparent; /* Transparent border for gradient effect */
-    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
-    border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-}
-   /* padding: 40px 20px;
-    border-radius: 9px;
-    margin: 40px 0;
-    color: #333;
-    transition: all 0.3s ease-in-out; /* Smooth transition 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
-	
-#bahrain-services h2 {
-	font-size: 40px; /* Slightly larger for more prominence */
-    color: #F7E06C; /* Retain the beautiful gold color */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* Darker gradient for added depth */
-    padding: 25px 35px; /* More balanced padding */
-    border-radius: 12px; /* Softer, more rounded corners */
-    margin-bottom: 35px; /* More space beneath the header */
-    text-align: center; /* Keep the header center-aligned */
-    font-family: 'Playfair Display', serif; /* Keep the stylish serif font */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Deeper shadow for more emphasis */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a slight box shadow for depth */
-}
-
-.service-card .h3{
-
-}
-
-.bahrain-slider-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-}
-
-.bahrain-slide {
-  display: flex;
-  justify-content: center; /* Center the cards within each slide */
-  min-width: 100%;
-}
-
-/* Enhanced Card Style */
-.service-card {
-    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); /* Gradient background for cards */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    flex: 1 1 calc(20% - 20px); /* Adjust card size for 5 cards per slide initially */
-    max-width: calc(20% - 20px);
-    margin: 0 10px; /* Space between cards */
-    box-sizing: border-box; /* Ensure padding and borders are included in width */
-    text-align: center;
-    color: #fff; /* White text for better readability */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease; /* Smooth transitions */
-    position: relative;
-    overflow: hidden;
-    font-family: 'Montserrat', sans-serif; /* Stylish font for the cards */
-    border: 2px solid transparent; /* Add border effect */
-}
-
-
-/* Text Shadow for Improved Readability */
-.service-card h3, .service-card p {
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
-}
-
-/* Adjust card size for 4 cards per slide */
-.bahrain-slide:not(:first-child) .service-card {
-  flex: 1 1 calc(25% - 20px);
-  max-width: calc(25% - 20px);
-}
-
-
-
-/* Card Image */
-.service-card img {
-    width: 100%; /* Ensure images take up the full width of their container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners to match the card */
-    object-fit: cover; /* Cover the area of the card without stretching */
-    transition: transform 0.3s ease; /* Smooth transition for image effects */
-}   
-    
-/* Styling for navigation buttons */
-.back, .forward {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background */
-  color: white;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-}
-
-.back {
-  left: 10px;
-}
-
-.forward {
-  right: 10px;
-}
-
-
-
-/*hover effects*/
-/* Hover Effect */
-.service-card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
-    background: linear-gradient(135deg, rgba(249, 219, 61, 1), rgba(249, 219, 61, 0.9)); /* Reverse gradient on hover */
-    border: 2px solid #F7E06C; /* Highlight border on hover */
-}
-
-/* Adjust hover effect for images */
-.service-card:hover img {
-    transform: scale(1.05); /* Slightly enlarge the image on hover */
-}
-
-.back:hover, .forward:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
-}
-
-/* Keyframes Animations */
-
-/* Fade In Animation */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Slide In Animation from Left */
-@keyframes slideInLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Slide In Animation from Right */
-@keyframes slideInRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Zoom In Animation */
-@keyframes zoomIn {
-    0% {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Fade In for Text and Headers */
-#our-products h1,
-#our-products p,
-#heavy-equipment-rental h2,
-#product-categories h2 {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Zoom In for Equipment Cards */
-.equipment-card {
-    animation: zoomIn 0.8s ease-in-out;
-}
-
-/* Slide In for Our Products Slider */
-.products-slider .slider {
-    animation: slideInRight 1s ease-in-out;
-}
-
-/* Slide In for Equipment Slider */
-.equipment-slider-wrapper {
-    animation: slideInLeft 1s ease-in-out;
-}
-
-/* Hover Zoom Effect on Cards */
-.equipment-card:hover {
-    animation: zoomIn 0.5s ease-in-out;
-    transform: scale(1.08);
-}
-
-/* Fade In for Category Cards */
-.category-card {
-    animation: fadeIn 0.8s ease-in-out;
-}
-
-/* Slide In for Category Cards */
-.categories-cards .category-card {
-    animation: slideInRight 1s ease-in-out;
-}
-
-/* Applying Animations to Texts */
-.products-text h1, 
-.products-text p {
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* Applying Animations to Images in Sliders */
-.slider img, 
-.equipment-card img {
-    animation: zoomIn 0.8s ease-in-out;
-}
-
-
-
 
 
 /*PROJECT PAGE CSS*/

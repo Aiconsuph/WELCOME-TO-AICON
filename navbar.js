@@ -1,3 +1,62 @@
+//partners js
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.btn-toggle').forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.partnership-card');
+            card.classList.toggle('active');
+            this.textContent = card.classList.contains('active') ? 'Read Less' : 'Read More';
+        });
+    });
+});
+
+//missionvision js
+// JavaScript for Tabs
+function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-button');
+
+    tabs.forEach(tab => {
+        if (tab.id === tabId) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    buttons.forEach(button => {
+        if (button.textContent.toLowerCase() === tabId) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
+}
+
+
+// Initialize first tab
+document.addEventListener('DOMContentLoaded', () => {
+    showTab('mission');
+});
+
+
+//button on board of directors js
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.toggle-description');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const description = this.nextElementSibling;
+            if (description.style.display === 'none' || description.style.display === '') {
+                description.style.display = 'block';
+                this.textContent = 'Read Less'; // Change button text to indicate it can be collapsed
+            } else {
+                description.style.display = 'none';
+                this.textContent = 'Discover More'; // Revert button text
+            }
+        });
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
