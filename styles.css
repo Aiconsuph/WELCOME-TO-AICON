@@ -314,8 +314,31 @@ header {
     gap: 20px;
 }
 
+.info-card1 {
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+    animation: cardAppear 1s ease-in;
+}
+
+/* Enlarging the title */
+.info-card1 h3 {
+    color: #F9DB3D;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+    font-size: 32px; /* Adjusted font size for h3 */
+}
+
+/* Enlarging the paragraph text */
+.info-card1 p {
+    color: #F9DB3D;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px; /* Adjusted font size for paragraph */
+}
+
 .info-card {
-    background-color: #F9DB3D; /* Gold background */
+    background-color: #e0c53f;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -323,15 +346,14 @@ header {
     text-align: center;
     animation: cardAppear 1s ease-in;
 }
-
 .info-card h3 {
-    color: #000;
+    color: #1e1d1d;
     font-family: 'Playfair Display', serif;
     margin-bottom: 10px;
 }
 
 .info-card p {
-    color: #333;
+    color: #1e1d1d;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -340,11 +362,26 @@ header {
     width: 90px; /* Adjusted icon size */
     height: 90px;
     margin-bottom: 10px; /* Space between icon and title */
+    transform: scale(1.05);
+}
+/* Icon resizing */
+.info-icon {
+    width: 130px; /* Adjusted icon size */
+    height: 130px;
+    margin-bottom: 10px; /* Space between icon and title */
+    transform: scale(1.05);
+    transition: transform 0.3s ease, filter 0.3s ease; /* Added transition for filter effect */
+}
+
+/* Hover effect */
+.info-icon:hover {
+    transform: scale(1.2); /* Slightly increase the size on hover */
+    filter: brightness(1.2); /* Make the icon a bit brighter */
 }
 
 .info-card:hover {
     transform: scale(1.05);
-    background-color: #e0c53f;
+    
 }
 
 /* Slide-Up Animation for Section */
@@ -758,11 +795,9 @@ header {
 
 /* Feature Card Icon */
 .feature-icon {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid #333;
+    width: 300px;
+    height: 300px;
+    margin-bottom: -25px;
     transition: border-color 0.3s ease;
 }
 
@@ -789,6 +824,8 @@ header {
     color: #444;
     margin-top: 15px;
 }
+
+
 
 /* Text Styling within Feature Cards */
 .board-feature-card h3,
@@ -883,7 +920,7 @@ header {
 
 /* Partnership Card */
 .partnership-card {
-    background-color: #F9DB3D; /* Updated to match the yellow color scheme */
+
     border-radius: 12px;
     padding: 30px;
     max-width: 300px; /* Adjusted max-width for better fit */
@@ -905,7 +942,6 @@ header {
     height: auto;
     margin-bottom: 20px;
     border-radius: 10px;
-    border: 3px solid #333;
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -916,13 +952,13 @@ header {
 
 /* Text Styling */
 .partnership-card h3 {
-    color: #333;
+    color: #F9DB3D;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
 .partnership-card p {
-    color: #333;
+    color: #F9DB3D;
     font-size: 1rem;
     line-height: 1.6;
 }
@@ -1792,7 +1828,6 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;

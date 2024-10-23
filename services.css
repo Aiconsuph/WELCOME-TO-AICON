@@ -679,7 +679,7 @@ header {
 }
 /* Hover Effect */
 .category-item:hover {
-    background-color: #f9f9f9; /* Light background color on hover */
+    background-color: ; /* Light background color on hover */
     color: #f39c12; /* Highlight color on hover */
 }
 
