@@ -8,21 +8,60 @@ body {
     font-size: 16px;
     line-height: 1.6;
 }
-html {
-    scroll-behavior: smooth;
+
+
+
+/* Scrollbar Styles for Webkit Browsers */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar for horizontal scrollbar */
 }
 
-/* General Navigation Bar Styles */
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Track color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.4); /* Inner shadow for depth */
+}
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(249, 219, 61, 0.8) 0%, rgba(255, 0, 255, 0.5) 100%); /* Gradient handle color */
+    border-radius: 10px; /* Rounded corners */
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Light border for contrast */
+    box-shadow: 0 0 8px rgba(249, 219, 61, 0.8), 0 0 16px rgba(255, 0, 255, 0.5); /* Glowing effect */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(255, 0, 255, 0.8) 0%, rgba(249, 219, 61, 0.7) 100%); /* Bright gradient on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover for emphasis */
+    box-shadow: 0 0 12px rgba(255, 0, 255, 1), 0 0 24px rgba(249, 219, 61, 1); /* Enhanced glow on hover */
+}
+
+/* Scrollbar Styles for Firefox */
+html {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: rgba(249, 219, 61, 0.8) rgba(255, 255, 255, 0.2); /* Handle color and track color */
+}
+
+
+
+
+/* General Navigation Bar Styles */
+/* General Navigation Bar Styles */
+/* General Navigation Bar Styles */
+/* General Navigation Bar Styles */
 header {
     background: linear-gradient(135deg, rgba(249, 219, 61, 0.75) 0%, rgba(252, 235, 108, 0.75) 100%); /* Slightly more transparent */
-    padding: 2px 30px;
+    padding: 10px 30px; /* Adjusted padding for better mobile appearance */
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: background 0.6s ease, box-shadow 0.3s ease; /* Smooth transition */
-    position: sticky;
+
     top: 0;
     z-index: 100;
 }
@@ -49,6 +88,7 @@ header {
     align-items: center;
 }
 
+/* Main Links */
 .main-link {
     color: #000;
     text-decoration: none;
@@ -172,14 +212,17 @@ header {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    /* Header Adjustment for Mobile */
     header {
-        padding: 10px 20px;
-        flex-direction: column;
-    }
-
-    .navbar {
+        padding: 10px 15px;
         flex-direction: column;
         gap: 10px;
+    }
+
+    /* Navbar Adjustment for Mobile */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .main-link {
@@ -188,6 +231,7 @@ header {
         text-align: center;
     }
 
+    /* Dropdown Adjustment for Mobile */
     .dropdown-toggle {
         margin-left: 0;
         justify-content: center;
@@ -199,6 +243,11 @@ header {
         box-shadow: none;
         padding: 10px 0;
         border-radius: 0;
+    }
+
+    /* Logo Adjustment for Mobile */
+    .logo {
+        max-height: 60px;
     }
 }
 
@@ -224,31 +273,33 @@ header {
 .logo-container:hover .logo {
     filter: brightness(1.2);
 }
+
+
 /*SERVICES PAGE CSS*/
 
 /* Our Products Section */
 #our-products {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center; /* Center items */
+    justify-content: center;
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('bg_ourproducts.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
-    border-radius: 10px; /* Slightly rounded corners */
+    border-radius: 10px; /* Rounded corners */
     margin: 20px 0;
-    color: #333; /* Adjust the text color for better contrast */
-    border: 5px solid transparent; /* Transparent border for gradient effect */
+    color: #333; /* Text color */
+    border: 5px solid transparent; /* Transparent border for gradient */
     border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
     border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
 }
 
 .our-products-content {
     display: flex;
-    justify-content: space-between;
+    align-items: center; /* Center items */
     width: 100%;
-    align-items: center;
     padding: 20px;
     border-radius: 5px;
 }
@@ -334,37 +385,67 @@ header {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .our-products-content {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .products-text {
+        padding: 10px; /* Adjust padding for mobile */
+    }
+
+    .products-text h1 {
+        font-size: 1.5rem; /* Adjust heading size for mobile */
+    }
+
+    .products-text p {
+        font-size: 0.9rem; /* Adjust paragraph size for mobile */
+    }
+
+    .products-slider {
+        width: 100%; /* Ensure full width for slider */
+    }
+}
+
+
+
+
+
+
+
 /* Heavy Equipment Rental Section */
 #heavy-equipment-rental {
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgheavy.png') no-repeat center center/cover; /* Background image with light gradient */
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgheavy.png') no-repeat center center/cover; 
     position: relative;
     width: 100%;
-    margin-bottom: 30px; /* Space between sections */
-    padding-bottom: 60px; /* Add padding to the bottom */
+    margin-bottom: 30px; 
+    padding-bottom: 30px; 
     overflow: hidden;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	border-radius: 9px;
-    border: 5px solid transparent; /* Transparent border for gradient effect */
-    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 9px;
+    border: 5px solid transparent; 
+    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); 
     border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-	
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
+
 
 /* Header Style */
 #heavy-equipment-rental h2 {
-    font-size: 40px; /* Slightly larger for more prominence */
-    color: #F7E06C; /* Retain the beautiful gold color */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* Darker gradient for added depth */
-    padding: 25px 35px; /* More balanced padding */
-    border-radius: 12px; /* Softer, more rounded corners */
-    margin-bottom: 35px; /* More space beneath the header */
-    text-align: center; /* Keep the header center-aligned */
-    font-family: 'Playfair Display', serif; /* Keep the stylish serif font */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Deeper shadow for more emphasis */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a slight box shadow for depth */
+    font-size: 40px; 
+    color: #F7E06C; 
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); 
+    padding: 25px 35px; 
+    border-radius: 12px; 
+    margin-bottom: 35px; 
+    text-align: center; 
+    font-family: 'Playfair Display', serif; 
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
 }
 
 /* Slider Container */
@@ -372,14 +453,14 @@ header {
     position: relative;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 40px; /* Space between the slider and next section */
+    margin-bottom: 40px; 
 }
 
 /* Slider Wrapper */
 .equipment-slider-wrapper {
     display: flex;
     transition: transform 0.5s ease;
-    width: 100%; /* Ensure slider takes up the full width */
+    width: 100%; 
 }
 
 /* Each Slide */
@@ -387,18 +468,18 @@ header {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 20px 0; /* Add padding for spacing */
+    padding: 20px 0; 
 }
 
 /* Card Style */
 .equipment-card {
-    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); /* Intense gradient */
+    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); 
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    flex: 1 1 calc(25% - 20px); /* 4 cards per slide */
-    max-width: calc(25% - 20px); /* Adjust to fit 4 per slide */
-    margin: 0 10px; /* Space between cards */
+    flex: 1 1 calc(25% - 20px); 
+    max-width: calc(25% - 20px); 
+    margin: 0 10px; 
     box-sizing: border-box;
     text-align: center;
     color: #333;
@@ -407,7 +488,7 @@ header {
 
 /* Card Image */
 .equipment-card img {
-    width: 100%; /* Ensure image fits within the card */
+    width: 100%; 
     height: auto;
     border-radius: 8px;
 }
@@ -415,62 +496,101 @@ header {
 /* Card Heading */
 .equipment-card h3 {
     margin-top: 15px;
-    font-size: 20px; /* Slightly larger font size for better readability */
-    color: #fff; /* White text for contrast */
-    font-family: 'Poppins', sans-serif; /* A modern and elegant font */
-    text-transform: uppercase; /* Uppercase for a bold look */
-    letter-spacing: 1.5px; /* Increased spacing for a cleaner look */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add subtle shadow for improved visibility */
+    font-size: 20px; 
+    color: #fff; 
+    font-family: 'Poppins', sans-serif; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
 }
-
 
 /* Hover Effect for Cards */
 .equipment-card:hover {
-    background: linear-gradient(135deg, #F7E06C, #F9DB3D); /* Reverse gradient on hover */
-    transform: scale(1.08); /* More noticeable scale on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+    background: linear-gradient(135deg, #F7E06C, #F9DB3D); 
+    transform: scale(1.08); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); 
 }
-
 
 /* Navigation Buttons */
+
+.pagination-controls {
+    text-align: center;
+    margin-top: 5px;
+}
+
+
 .prev1, .next1 {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.7); /* Darker background */
-    color: white;
+    background-color: rgba(255, 215, 0, 0.8); /* Semi-transparent gold */
+    color: #333;
     border: none;
-    padding: 12px;
+    padding: 12px 24px;
+    margin: 0 0px;
     cursor: pointer;
-    z-index: 10;
-    border-radius: 50%;
+    font-size: 1em;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.prev1 {
-    left: 15px;
-}
-
-.next1 {
-    right: 15px;
-}
 
 .prev1:hover, .next1:hover {
-    background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
+    background-color: #e0c53f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Styles */
+
+/* Responsive Design for Equipment Cards */
+@media (max-width: 1200px) {
+    .equipment-card {
+        flex: 1 1 calc(25% - 20px); /* 4 cards per row on large screens */
+        max-width: calc(25% - 10px);
+    }
+}
+
+@media (max-width: 992px) {
+    .equipment-card {
+        flex: 1 1 calc(33.33% - 20px); /* 3 cards per row on medium screens */
+        max-width: calc(33.33% - 10px);
+    }
+}
+
 @media (max-width: 768px) {
     .equipment-card {
-        flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row on small screens */
+        max-width: calc(50% - 10px);
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+    .equipment-slide {
+        flex-direction: column; /* Stack cards vertically on mobile */
+        justify-content: space-between; /* Space out the content and buttons */
+        height: 100%; /* Make sure it takes full height to align items properly */
+    }
+
     .equipment-card {
-        flex: 1 1 100%; /* 1 card per row on extra small screens */
-        max-width: 100%;
+        flex: 1 1 100%; /* 1 card per row on mobile */
+        max-width: 90%; 
+        margin: 10px 0; /* Margin between cards */
+    }
+
+    .button-container {
+        margin-top: auto; /* Push buttons to the bottom */
+        display: flex; /* Use flex for buttons alignment */
+        justify-content: space-between; /* Distribute buttons evenly */
+        padding: 10px 0; /* Padding for better button spacing */
+    }
+
+    .prev1, 
+    .next1 {
+        padding: 10px 20px; /* Adjust button padding */
+        margin: 0 5px; /* Margin for buttons */
+        width: 45%; /* Adjust button width */
     }
 }
+
+
 
 
 /* Product Categories Section */
@@ -679,7 +799,6 @@ header {
 }
 /* Hover Effect */
 .category-item:hover {
-    background-color: ; /* Light background color on hover */
     color: #f39c12; /* Highlight color on hover */
 }
 
@@ -726,142 +845,167 @@ header {
 
 /* BAHRAIN SERVICES CSS */
 
-
 #bahrain-services {
-    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgbahrain.png') no-repeat center center/cover; /* Background image with light gradient */
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('bgbahrain.png') no-repeat center center/cover; 
     position: relative;
     width: 100%;
-    margin-bottom: 30px; /* Space between sections */
-    padding-bottom: 60px; /* Add padding to the bottom */
+    margin-bottom: 30px; 
+    padding-bottom: 60px; 
     overflow: hidden;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	border-radius: 9px;
-	    border: 5px solid transparent; /* Transparent border for gradient effect */
-    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); /* Gradient border */
-    border-image-slice: 1;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-}
-   /* padding: 40px 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 9px;
-    margin: 40px 0;
-    color: #333;
-    transition: all 0.3s ease-in-out; /* Smooth transition 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
-	
-#bahrain-services h2 {
-	font-size: 40px; /* Slightly larger for more prominence */
-    color: #F7E06C; /* Retain the beautiful gold color */
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); /* Darker gradient for added depth */
-    padding: 25px 35px; /* More balanced padding */
-    border-radius: 12px; /* Softer, more rounded corners */
-    margin-bottom: 35px; /* More space beneath the header */
-    text-align: center; /* Keep the header center-aligned */
-    font-family: 'Playfair Display', serif; /* Keep the stylish serif font */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Deeper shadow for more emphasis */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a slight box shadow for depth */
+    border: 5px solid transparent; 
+    border-image: linear-gradient(135deg, rgba(249, 219, 61, 0.5), rgba(249, 219, 61, 1)); 
+    border-image-slice: 1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
 
-.service-card .h3{
-
+#bahrain-services h2 {
+    font-size: 40px; 
+    color: #F7E06C; 
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)); 
+    padding: 25px 35px; 
+    border-radius: 12px; 
+    margin-bottom: 35px; 
+    text-align: center; 
+    font-family: 'Playfair Display', serif; 
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
 }
 
 .bahrain-slider-container {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
 .bahrain-slide {
-  display: flex;
-  justify-content: center; /* Center the cards within each slide */
-  min-width: 100%;
+    display: flex;
+    justify-content: center; 
+    min-width: 100%;
+}
+
+.projects-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
 /* Enhanced Card Style */
 .service-card {
-    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); /* Gradient background for cards */
+    background: linear-gradient(135deg, rgba(249, 219, 61, 0.9), rgba(249, 219, 61, 1)); 
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    flex: 1 1 calc(20% - 20px); /* Adjust card size for 5 cards per slide initially */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+    flex: 1 1 calc(20% - 20px); 
     max-width: calc(20% - 20px);
-    margin: 0 10px; /* Space between cards */
-    box-sizing: border-box; /* Ensure padding and borders are included in width */
+    margin: 0 10px; 
+    box-sizing: border-box; 
     text-align: center;
-    color: #fff; /* White text for better readability */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease; /* Smooth transitions */
+    color: #fff; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease; 
     position: relative;
     overflow: hidden;
-    font-family: 'Montserrat', sans-serif; /* Stylish font for the cards */
-    border: 2px solid transparent; /* Add border effect */
+    font-family: 'Montserrat', sans-serif; 
+    border: 2px solid transparent; 
 }
-
 
 /* Text Shadow for Improved Readability */
 .service-card h3, .service-card p {
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Subtle shadow for depth */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); 
 }
 
 /* Adjust card size for 4 cards per slide */
 .bahrain-slide:not(:first-child) .service-card {
-  flex: 1 1 calc(25% - 20px);
-  max-width: calc(25% - 20px);
+    flex: 1 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
 }
-
-
 
 /* Card Image */
 .service-card img {
-    width: 100%; /* Ensure images take up the full width of their container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners to match the card */
-    object-fit: cover; /* Cover the area of the card without stretching */
-    transition: transform 0.3s ease; /* Smooth transition for image effects */
-}   
-    
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    object-fit: cover; 
+    transition: transform 0.3s ease; 
+}
+
 /* Styling for navigation buttons */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .back, .forward {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background */
-  color: white;
-  border: none;
-  padding: 12px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
+    background-color: rgba(255, 215, 0, 0.8); 
+    color: #333;
+    border: none;
+    padding: 12px 24px;
+    margin: 0 0px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.back {
-  left: 10px;
-}
-
-.forward {
-  right: 10px;
-}
-
-
-
-/*hover effects*/
 /* Hover Effect */
 .service-card:hover {
-    transform: scale(1.05); /* Slightly enlarge the card */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
-    background: linear-gradient(135deg, rgba(249, 219, 61, 1), rgba(249, 219, 61, 0.9)); /* Reverse gradient on hover */
-    border: 2px solid #F7E06C; /* Highlight border on hover */
+    transform: scale(1.05); 
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); 
+    background: linear-gradient(135deg, rgba(249, 219, 61, 1), rgba(249, 219, 61, 0.9)); 
+    border: 2px solid #F7E06C; 
 }
 
-/* Adjust hover effect for images */
 .service-card:hover img {
-    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    transform: scale(1.05); 
 }
 
 .back:hover, .forward:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
+    background-color: rgba(0, 0, 0, 0.9); 
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .bahrain-slider-container {
+        max-width: 90%; /* Make the container wider on mobile */
+        margin: 0 auto; /* Center the container */
+    }
+
+    .bahrain-slide {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center cards */
+    }
+    
+    .service-card {
+        flex: 1 1 100%; /* Full width for cards on mobile */
+        max-width: 100%; /* Full width */
+        margin: 10px 0; /* Margin for vertical spacing */
+    }
+
+    /* Adjust for first slide with 5 cards */
+    .bahrain-slide:first-child .service-card {
+        flex: 1 1 20%; /* Show 5 cards */
+        max-width: 89%; 
+    }
+
+    /* For subsequent slides with 4 cards */
+    .bahrain-slide:not(:first-child) .service-card {
+        flex: 1 1 25%; /* Show 4 cards */
+        max-width: 88%;
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -880,7 +1024,6 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
@@ -1013,33 +1156,41 @@ footer p {
 /* Responsiveness */
 @media (max-width: 1200px) {
     footer {
-        padding: 20px 3%; /* Less padding for mid-sized screens */
+        padding: 20px 3%;
     }
     .footer-logo {
-        max-width: 120px; /* Smaller logo */
-        width: 20%; /* Adjust width */
+        max-width: 120px;
+        width: 20%;
     }
     .footer-links a {
         font-size: 0.9em;
     }
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px; /* Default padding for mobile */
+    .footer-content {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items */
     }
+
     .footer-logo {
-        max-width: 100px;
-        width: 25%; /* Adjust logo size for smaller screens */
-        margin-bottom: 20px;
+        margin-bottom: 15px; /* Space between logo and links */
     }
+
     .footer-links {
-        gap: 20px; /* Reduce space between links */
+        margin-left: -5%; /* Reset margin */
+        justify-content: center; /* Center links */
+        flex-wrap: wrap; /* Wrap links if necessary */
     }
+
     .footer-social {
-        gap: 10px; /* Smaller gap between icons */
+        width: 100%; /* Full width on mobile */
+        justify-content: center; /* Center social icons */
+    }
+
+    footer p {
+        font-size: 0.9em; /* Smaller text for mobile */
     }
 }
 
@@ -1049,7 +1200,7 @@ footer p {
         width: 30%;
     }
     .footer-links a {
-        font-size: 0.8em; /* Smaller text for links */
+        font-size: 0.8em;
     }
     .footer-social img {
         width: 25px;
