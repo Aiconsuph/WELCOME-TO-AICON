@@ -18,7 +18,7 @@ html {
 /* General Navigation Bar Styles */
 header {
     background: linear-gradient(135deg, rgba(249, 219, 61, 0.75) 0%, rgba(252, 235, 108, 0.75) 100%); /* Slightly more transparent */
-    padding: 2px 30px;
+    padding: 10px 30px; /* Adjusted padding for better mobile appearance */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,6 +51,7 @@ header {
     align-items: center;
 }
 
+/* Main Links */
 .main-link {
     color: #000;
     text-decoration: none;
@@ -174,14 +175,17 @@ header {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    /* Header Adjustment for Mobile */
     header {
-        padding: 10px 20px;
-        flex-direction: column;
-    }
-
-    .navbar {
+        padding: 10px 15px;
         flex-direction: column;
         gap: 10px;
+    }
+
+    /* Navbar Adjustment for Mobile */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .main-link {
@@ -190,6 +194,7 @@ header {
         text-align: center;
     }
 
+    /* Dropdown Adjustment for Mobile */
     .dropdown-toggle {
         margin-left: 0;
         justify-content: center;
@@ -201,6 +206,11 @@ header {
         box-shadow: none;
         padding: 10px 0;
         border-radius: 0;
+    }
+
+    /* Logo Adjustment for Mobile */
+    .logo {
+        max-height: 60px;
     }
 }
 
@@ -286,11 +296,6 @@ header {
     transform: scale(1.05);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
 
 /* Reasons to Choose Styles */
 #reasons-to-choose {
@@ -384,13 +389,76 @@ header {
     
 }
 
-/* Slide-Up Animation for Section */
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .info-cards {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .info-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+    
+    #welcome-section {
+        padding: 50px 20px; /* Reduce padding for mobile */
+    }
+    
+    #welcome-section h1 {
+        font-size: 2.5em; /* Decrease font size for mobile */
+    }
+
+    #welcome-section p, #welcome-section .p1 {
+        font-size: 1.1em; /* Adjust text size for readability */
+    }
+
+    .btn-primary {
+        font-size: 1.1em; /* Smaller button for mobile */
+        padding: 10px 20px; /* Adjust padding */
+    }
+
+    #reasons-to-choose h2 {
+        font-size: 2em; /* Adjust heading size */
+    }
+}
+
+@media (max-width: 576px) {
+    .info-cards {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+    
+    .info-card {
+        padding: 15px; /* Smaller padding on mobile */
+    }
+
+    #welcome-section h1 {
+        font-size: 2em; /* Further decrease font size */
+    }
+
+    .btn-primary {
+        font-size: 1em; /* Smaller button */
+        padding: 8px 16px; /* Adjust padding */
+    }
+
+    #reasons-to-choose h2 {
+        font-size: 1.8em; /* Adjust heading size */
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 @keyframes slideUp {
     0% { transform: translateY(100px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
 }
 
-/* Card Appear Animation */
 @keyframes cardAppear {
     0% { transform: scale(0.8); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
@@ -610,21 +678,32 @@ header {
 /* Individual Mission, Vision, Core Values Cards */
 /* Ensure all cards have the same margins */
 /* Ensure all cards have the same margins */
-.mission, .vision, .core-values {
-    background-color: #F9DB3D; /* Updated background color */
-    color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    flex: 1; /* Grow to fill available space */
-    margin: 20px; /* Uniform margin for spacing between items */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 1s ease-in-out;
-    font-family: 'Poppins', sans-serif; /* Updated font */
-    font-size: 16px; /* Adjust the base font size for readability */
-    line-height: 1.6; /* Improve text spacing for readability */
-    min-width: 250px; /* Minimum width to ensure readability */
+
+/* Container to hold mission, vision, and core values */
+.mission-vision-values-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    padding: 40px; /* Padding for the entire container */
+    border-radius: 15px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for container depth */
 }
+
+
+/* Individual sections */
+.mission, .vision, .core-values {
+    background-color: #F9DB3D; /* Bright, contrasting background */
+    color: #333; /* Dark text for readability */
+    border-radius: 8px; /* Smooth corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    flex: 1; /* Allows items to expand evenly */
+    margin: 0; /* No extra margin as gap handles spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    animation: fadeInUp 1s ease-in-out;
+    font-family: 'Poppins', sans-serif; /* Clean font */
+    font-size: 16px;
+    line-height: 1.6; /* Improved readability */
+}
+
 
 /* Reset margin and padding to prevent unintended spacing */
 .mission, .vision, .core-values {
@@ -671,17 +750,25 @@ header {
     color: #333;
 }
 
+/* Hover effect */
+.mission:hover, .vision:hover, .core-values:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+}
 
-/* Ensure CSS consistency and responsiveness */
+
+
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     .about-content, .about-main-container, .mission-vision {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
-        align-items: center; /* Center items horizontally */
+        flex-direction: column;
+        align-items: center;
     }
 
     .mission, .vision, .core-values {
-        margin: 10px 0; /* Adjust margin for mobile view */
-        width: 100%; /* Full width for better alignment */
+        margin: 10px 0;
+        width: 100%; /* Full width on mobile */
     }
 }
 /* Board of Directors Section */
@@ -1026,7 +1113,78 @@ header {
         transform: translateY(0);
     }
 }
+/* About Section - mobile adjustments */
+@media (max-width: 768px) {
+    #about {
+        padding: 20px 10px;
+        max-width: 100%;
+    }
 
+    /* Heading adjustments */
+    .about-heading {
+        font-size: 28px;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+    }
+
+    /* Stack content vertically */
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Reduce the gap for smaller screens */
+    }
+
+    /* Paragraph adjustments */
+    .about-paragraph {
+        font-size: 16px;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    /* Mission, Vision & Core Values section - stack vertically on mobile */
+    .mission-vision {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .mission, .vision, .core-values {
+        width: 100%;
+        margin: 10px 0; /* Adjust margins for better spacing */
+    }
+
+    /* Board of Directors adjustments */
+    .board-of-directors {
+        padding: 20px 10px;
+    }
+
+    /* Board feature cards - stack vertically */
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .board-feature-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Adjust text sizes */
+    .board-feature-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .board-feature-card p {
+        font-size: 0.9rem;
+    }
+
+    /* Toggle button adjustments */
+    .toggle-description {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
 
 /*PROJECT PAGE CSS*/
 
@@ -1960,11 +2118,11 @@ footer p {
 /* Responsiveness */
 @media (max-width: 1200px) {
     footer {
-        padding: 20px 3%; /* Less padding for mid-sized screens */
+        padding: 20px 3%;
     }
     .footer-logo {
-        max-width: 120px; /* Smaller logo */
-        width: 20%; /* Adjust width */
+        max-width: 120px;
+        width: 20%;
     }
     .footer-links a {
         font-size: 0.9em;
@@ -1975,18 +2133,18 @@ footer p {
     footer {
         flex-direction: column;
         text-align: center;
-        padding: 20px; /* Default padding for mobile */
+        padding: 20px;
     }
     .footer-logo {
         max-width: 100px;
-        width: 25%; /* Adjust logo size for smaller screens */
+        width: 25%;
         margin-bottom: 20px;
     }
     .footer-links {
-        gap: 20px; /* Reduce space between links */
+        gap: 20px;
     }
     .footer-social {
-        gap: 10px; /* Smaller gap between icons */
+        gap: 10px;
     }
 }
 
@@ -1996,7 +2154,7 @@ footer p {
         width: 30%;
     }
     .footer-links a {
-        font-size: 0.8em; /* Smaller text for links */
+        font-size: 0.8em;
     }
     .footer-social img {
         width: 25px;
