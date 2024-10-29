@@ -4,7 +4,6 @@
 
 
 
-
 //partners js
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.btn-toggle').forEach(button => {
@@ -163,26 +162,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// FOOTER CLOCK PST JS
+function updatePST() {
+    const now = new Date();
+    const pstTime = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Manila" }));
 
-//FOOTER CLOCK PST JS
-    function updatePST() {
-        const now = new Date();
-        const pstOffset = 8 * 60 * 60 * 1000; // Offset for UTC+8 (PST)
-        const pstTime = new Date(now.getTime() + pstOffset);
+    // Format time (e.g., 12-hour format with AM/PM)
+    const options = {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true
+    };
+    const formattedTime = pstTime.toLocaleString('en-US', options);
 
-        // Format time (e.g., 12-hour format with AM/PM)
-        const options = {
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-            hour12: true
-        };
-        const formattedTime = pstTime.toLocaleString('en-US', options);
+    // Display time
+    document.getElementById('pst-time').textContent = `Philippine Standard Time: ${formattedTime}`;
+}
 
-        // Display time
-        document.getElementById('pst-time').textContent = `Philippine Standard Time: ${formattedTime}`;
-    }
+setInterval(updatePST, 1000); // Update every second
+updatePST(); // Initial call to set time right away
 
-    setInterval(updatePST, 1000); // Update every second
-    updatePST(); // Initial call to set time right away
+
 

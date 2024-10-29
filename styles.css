@@ -345,6 +345,46 @@ header {
     filter: brightness(1.2);
 }
 
+
+/* Default clock styling */
+.clock-container {
+    font-size: 1.2rem; /* Increase font size for better readability */
+    color: #fff; /* Change color for better contrast */
+    background-color: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background */
+    border-radius: 5px; /* Rounded corners for a softer look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: transform 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Add hover effect for the clock */
+.clock-container:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Logo container layout for smaller screens */
+@media (max-width: 768px) {
+    .logo-container {
+        display: flex;
+        flex-direction: column; /* Stack the logo and clock vertically */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .clock-container {
+        font-size: 1rem; /* Adjust font size for mobile */
+        color: #fff; /* Ensure readability on darker backgrounds */
+        margin-top: 5px; /* Space between logo and time */
+        padding-left: 0;  /* Remove padding */
+    }
+}
+
+
+
+
+
+
 /* Welcome Section Styles */
 #welcome-section {
     padding: 80px 30px; /* More padding for better spacing */
