@@ -69,7 +69,6 @@ header {
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: background 0.6s ease, box-shadow 0.3s ease; /* Smooth transition */
-
     top: 0;
     z-index: 100;
 }
@@ -217,6 +216,70 @@ header {
     filter: brightness(1.3);
     transform: rotate(2deg);
 }
+
+/* Menu button styling */
+.menu-button {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Added padding for a better click area */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+/* Hide navbar by default on mobile */
+.navbar {
+    display: flex;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* Hidden initially on mobile */
+        flex-direction: column;
+        background-color: rgba(249, 219, 61, 0.95); /* Slightly transparent version of #F9DB3D */
+        border-radius: 10px; /* Rounded corners for navbar */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        padding: 15px; /* Padding for content */
+        position: absolute; /* Position it absolutely for better control */
+        top: 70px; /* Adjust position to be below the button */
+        right: 20px; /* Align with the button */
+        z-index: 1000; /* Ensure it's above other elements */
+        transition: max-height 0.5s ease-in-out; /* Smooth transition */
+        max-height: 0; /* Collapse by default */
+        overflow: hidden; /* Hide overflow */
+    }
+    
+
+    /* Display menu button on mobile */
+    .menu-button {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+    }
+
+    /* Show navbar when 'show' class is added */
+    .navbar.show {
+        display: flex; /* Show navbar */
+        max-height: 500px; /* Limit max-height for animation */
+    }
+    
+}
+
+/* Hover effect for menu button */
+.menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -2116,17 +2179,21 @@ main {
 }
 
 
+
+
+
 /* Footer Styles */
 footer {
-    background: linear-gradient(135deg, #333, #555); /* Gradient background for depth */
+    background: linear-gradient(135deg, #333, #555);
     color: #fff;
     padding: 20px 5%;
-    border-top: 5px solid #F9DB3D; /* Yellow line at the top */
+    border-top: 5px solid #F9DB3D;
     display: flex;
     align-items: center;
     flex-direction: column;
-    animation: fadeIn 1s ease-in-out;
+    position: relative; /* Set footer as a relative positioning reference */
 }
+
 
 .footer-content {
     display: flex;
@@ -2259,6 +2326,49 @@ footer p {
     animation: textFadeIn 1.6s ease-in-out;
 }
 
+
+#pst-time {
+    font-size: 0.9em;
+    color: #F9DB3D;
+    background: rgba(50, 50, 50, 0.8); /* Darker background */
+    padding: 6px 12px;
+    border-radius: 5px;
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Softer shadow */
+    font-family: 'Roboto', sans-serif;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+#pst-time:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* Adjustments for tablets and smaller screens */
+@media (max-width: 768px) {
+    #pst-time {
+        font-size: 0.85em;
+        padding: 5px 10px;
+        right: 10px;
+        bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #pst-time {
+        font-size: 0.75em;
+        padding: 4px 8px;
+        right: 8px;
+        bottom: 8px;
+        background: rgba(50, 50, 50, 0.6); /* Slightly lighter on very small screens */
+    }
+}
+
+
 /* Responsiveness */
 @media (max-width: 1200px) {
     footer {
@@ -2281,9 +2391,14 @@ footer p {
     }
 
     .footer-logo {
+        max-width: 250px; /* Increased from 200px to 250px */
+        width: 50%; /* Increased from 40% to 50% */
         margin-bottom: 15px; /* Space between logo and links */
     }
 
+
+
+    
     .footer-links {
         margin-left: -5%; /* Reset margin */
         justify-content: center; /* Center links */
@@ -2302,9 +2417,10 @@ footer p {
 
 @media (max-width: 480px) {
     .footer-logo {
-        max-width: 80px;
-        width: 30%;
+        max-width: 200px; /* Increased from 150px to 200px */
+        width: 60%; /* Increased from 50% to 60% */
     }
+
     .footer-links a {
         font-size: 0.8em;
     }

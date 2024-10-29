@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 //partners js
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.btn-toggle').forEach(button => {
@@ -61,37 +68,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
+// DROPDOWN AND MENU BAR JS
 document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.querySelector('.navbar');
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
-            const parentLi = toggle.closest('.nav-dropdown');
-            const menu = parentLi.querySelector('.dropdown-menu');
+    // Function to handle dropdowns
+    const handleDropdown = (toggle) => {
+        const parentLi = toggle.closest('.nav-dropdown');
+        const menu = parentLi.querySelector('.dropdown-menu');
 
-            // Close any open dropdowns
+        // Close any open dropdowns if on desktop
+        if (window.innerWidth > 768) { // Adjust this breakpoint as needed
             document.querySelectorAll('.nav-dropdown').forEach(item => {
                 if (item !== parentLi) {
                     item.classList.remove('show');
                 }
             });
+        }
 
-            // Toggle the clicked dropdown menu
-            parentLi.classList.toggle('show');
+        // Toggle the clicked dropdown menu
+        parentLi.classList.toggle('show');
+    };
+
+    // Attach event listeners to dropdown toggles
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+            handleDropdown(toggle);
         });
     });
 
     // Close dropdown if clicked outside
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-dropdown')) {
+        if (!e.target.closest('.nav-dropdown') && window.innerWidth > 768) { // Only close on desktop
             document.querySelectorAll('.nav-dropdown').forEach(item => {
                 item.classList.remove('show');
             });
         }
+    });
+
+    // Handle menu toggle for mobile view
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('show');
+        menuToggle.classList.toggle('open'); // Toggle button style
+        
+        // Optional: Add rotation effect
+        menuToggle.style.transform = navbar.classList.contains('show') ? 'rotate(90deg)' : 'rotate(0deg)';
     });
 
     // Add 'active' class to the current page link
@@ -137,3 +161,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+//FOOTER CLOCK PST JS
+    function updatePST() {
+        const now = new Date();
+        const pstOffset = 8 * 60 * 60 * 1000; // Offset for UTC+8 (PST)
+        const pstTime = new Date(now.getTime() + pstOffset);
+
+        // Format time (e.g., 12-hour format with AM/PM)
+        const options = {
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric',
+            hour12: true
+        };
+        const formattedTime = pstTime.toLocaleString('en-US', options);
+
+        // Display time
+        document.getElementById('pst-time').textContent = `Philippine Standard Time: ${formattedTime}`;
+    }
+
+    setInterval(updatePST, 1000); // Update every second
+    updatePST(); // Initial call to set time right away
+
