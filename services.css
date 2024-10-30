@@ -314,6 +314,7 @@ header {
     }
 }
 
+
 /* Logo Styles */
 .logo-container {
     padding: 5px; 
@@ -321,6 +322,7 @@ header {
     display: flex;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 15px; /* Add margin to create space between logo and clock */
 }
 
 .logo-container:hover {
@@ -337,47 +339,45 @@ header {
     filter: brightness(1.2);
 }
 
-/* Default clock styling */
+/* Clock Styles */
 .clock-container {
-    font-size: 1.2rem; /* Increase font size for better readability */
-    color: #fff; /* Change color for better contrast */
-    background-color: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background */
-    border-radius: 5px; /* Rounded corners for a softer look */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    font-size: 0.9rem; /* Smaller font size */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    line-height: 1.2;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    transition: transform 0.3s; /* Smooth transition for hover effects */
+    font-weight: 400;
+    text-align: center;
 }
 
-/* Add hover effect for the clock */
-.clock-container:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+.clock-container .date,
+.clock-container .time {
+    display: block;
+    margin: 0;
 }
 
-/* Logo container layout for smaller screens */
+
+@media (max-width: 768px) {
+    .clock-container {
+        font-size: 0.8rem;
+        padding: 2px 6px;
+        background-color: rgba(0, 0, 0, 0.7); /* Slightly darker for mobile */
+    }
+}
+
+
+/* Responsive layout adjustment */
 @media (max-width: 768px) {
     .logo-container {
-        display: flex;
-        flex-direction: column; /* Stack the logo and clock vertically */
+        flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
-    .clock-container {
-        font-size: 1rem; /* Adjust font size for mobile */
-        color: #fff; /* Ensure readability on darker backgrounds */
-        margin-top: 5px; /* Space between logo and time */
-        padding-left: 0;  /* Remove padding */
+
     }
-}
-
-
-
-
-
-
-
-
 
 
 

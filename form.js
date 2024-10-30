@@ -1,22 +1,22 @@
 
 // FOR HEADER TIME JS
-
-// JavaScript to update Philippine Standard Time (PST) clock
 function updateClock() {
-    const clockElement = document.getElementById('clock');
-    const options = { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-    const time = new Date().toLocaleTimeString('en-US', options);
-    clockElement.textContent = time;
+    const now = new Date();
+    const optionsDate = { timeZone: 'Asia/Manila', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsTime = { timeZone: 'Asia/Manila', hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+
+    // Format date and time separately
+    const formattedDate = new Intl.DateTimeFormat('en-PH', optionsDate).format(now);
+    const formattedTime = new Intl.DateTimeFormat('en-PH', optionsTime).format(now);
+
+    // Update HTML elements
+    document.getElementById('current-date').innerText = formattedDate;
+    document.getElementById('current-time').innerText = formattedTime;
 }
 
-// Update clock every second
+// Update every second
 setInterval(updateClock, 1000);
-updateClock();
-
-
-
-
-
+updateClock(); // Initial call to set the current date and time immediately
 
 
 
